@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<title>Maryland Family Child Care — six children, ages 5–13, Glendale CA</title>
-<meta name="description" content="Maryland Family Child Care — a licensed family child care home on N Maryland Avenue in Glendale, California. Six children, ages 5 to 13, one provider. Licence #198022164.">
+<title>Maryland Family Child Care — up to eight children, ages 5–13, Glendale CA</title>
+<meta name="description" content="Maryland Family Child Care — a licensed family child care home on N Maryland Avenue in Glendale, California. Up to eight children, ages 5 to 13, one provider. Licence #198022164.">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PHJlY3Qgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iMTAiIGZpbGw9IiNGNkY3RjIiLz48cGF0aCBkPSJNNi4wIDI1LjUgTDI4LjAgNy4wIEw1MC4wIDI1LjUgTDUwLjAgNDguMCBMNi4wIDQ4LjAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTczNDJDIiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjE4LjAiIGN5PSIzMS41IiByPSIyLjkiIGZpbGw9IiMxNzM0MkMiLz48Y2lyY2xlIGN4PSIyOC4wIiBjeT0iMzEuNSIgcj0iMi45IiBmaWxsPSIjMTczNDJDIi8+PGNpcmNsZSBjeD0iMzguMCIgY3k9IjMxLjUiIHI9IjIuOSIgZmlsbD0iIzE3MzQyQyIvPjxjaXJjbGUgY3g9IjE4LjAiIGN5PSI0MS4wIiByPSIyLjkiIGZpbGw9IiMxNzM0MkMiLz48Y2lyY2xlIGN4PSIyOC4wIiBjeT0iNDEuMCIgcj0iMi45IiBmaWxsPSIjMTczNDJDIi8+PGNpcmNsZSBjeD0iMzguMCIgY3k9IjQxLjAiIHI9IjIuOSIgZmlsbD0iI0UwQTAyQSIvPjwvc3ZnPg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -187,7 +187,7 @@ a{ color:inherit; }
 
 .seats{
   display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
+  grid-template-columns:repeat(4,minmax(0,1fr));
   gap:clamp(9px,1.1vw,16px);
   list-style:none; padding:0; margin:0;
 }
@@ -558,6 +558,23 @@ a{ color:inherit; }
 .form__done dt{ color:var(--ink-soft); min-width:104px; flex:none; }
 .form__done dd{ margin:0; color:var(--ink); }
 .form__actions{ display:flex; flex-wrap:wrap; gap:12px; }
+
+/* ── call or text ────────────────────────── */
+.contact{ margin-top:clamp(30px,3.8vw,48px); }
+.contact__phone{
+  font-family:var(--display); font-weight:700;
+  font-size:clamp(38px,6.2vw,78px); letter-spacing:-.045em;
+  line-height:1; color:var(--ink); text-decoration:none;
+  display:inline-block; padding-bottom:6px;
+  border-bottom:3px solid var(--mark);
+  transition:color .2s, border-color .2s;
+}
+.contact__phone:hover{ color:var(--berry); border-bottom-color:var(--berry); }
+.contact__actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(26px,3vw,36px); }
+.contact__note{
+  margin-top:24px; color:var(--ink-soft);
+  font-size:16.5px; line-height:1.55; max-width:54ch;
+}
 </style>
 </head>
 <body>
@@ -576,10 +593,9 @@ a{ color:inherit; }
     <nav class="nav__links" aria-label="Main">
       <a href="#day">After school</a>
       <a href="#anna">Anna</a>
-      <a href="#rates">Rates</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn" href="#visit">Book a visit <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+    <a class="btn" href="#visit">Call or text <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
   </div>
 </header>
 
@@ -590,17 +606,17 @@ a{ color:inherit; }
     <div class="hero__grid">
       <div>
         <p class="eyebrow">Licensed home &middot; Ages 5&ndash;13 &middot; Glendale, CA</p>
-        <h1>Six children. The state won't let us take <em>a seventh.</em></h1>
+        <h1>Up to eight children. The state won't let us take <em>a ninth.</em></h1>
       </div>
       <div class="hero__side">
-        <p>Maryland Family Child Care is a licensed home on N Maryland Avenue, run by <strong>Anna Poghosyan</strong>. Before school, after school, and full days when school is out. California caps a home this size at <strong>six children, ages 5 to 13</strong> &mdash; so six is what there is.</p>
+        <p>Maryland Family Child Care is a licensed home on N Maryland Avenue, run by <strong>Anna Poghosyan</strong>. We collect your child from school ourselves, keep them until you arrive, and open full days when school is out. California caps a home this size at <strong>eight children, ages 5 to 13</strong> &mdash; so eight is the most there will ever be.</p>
       </div>
     </div>
 
     <div class="roster">
       <div class="roster__head">
         <span>Who's here this year</span>
-        <span>Licensed capacity: 6</span>
+        <span>Licensed capacity: 8</span>
       </div>
       <ul class="seats">
         <li class="seat" style="animation-delay:.02s">
@@ -621,9 +637,11 @@ a{ color:inherit; }
         </li>
         <li class="seat seat--open" style="animation-delay:.18s"><span class="seat__name">Open</span><span class="seat__age">ages 5&ndash;13</span></li>
         <li class="seat seat--open" style="animation-delay:.22s"><span class="seat__name">Open</span><span class="seat__age">ages 5&ndash;13</span></li>
+        <li class="seat seat--open" style="animation-delay:.26s"><span class="seat__name">Open</span><span class="seat__age">ages 5&ndash;13</span></li>
+        <li class="seat seat--open" style="animation-delay:.30s"><span class="seat__name">Open</span><span class="seat__age">ages 5&ndash;13</span></li>
       </ul>
       <div class="roster__foot">
-        <p class="count"><b>4 enrolled</b> &middot; <span class="open-dot" aria-hidden="true"></span><b>2 places open.</b> When they fill, the list closes until someone ages out.</p>
+        <p class="count"><b>4 enrolled</b> &middot; <span class="open-dot" aria-hidden="true"></span><b>4 places open.</b> When they fill, the list closes until someone ages out.</p>
         <a class="btn btn--ghost" href="#visit">Come see the house <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -673,7 +691,7 @@ a{ color:inherit; }
         </div>
         <div class="slot">
           <span class="slot__time">3:00</span>
-          <span class="slot__what">Snack at the kitchen table<small>20 min &middot; all six, sitting down</small></span>
+          <span class="slot__what">Snack at the kitchen table<small>20 min &middot; all eight, sitting down</small></span>
           <span class="slot__bar" aria-hidden="true"><i style="width:33%"></i></span>
         </div>
         <div class="slot">
@@ -688,7 +706,7 @@ a{ color:inherit; }
         </div>
         <div class="slot">
           <span class="slot__time">5:00</span>
-          <span class="slot__what">Reading, drawing, building, arguing<small>45 min &middot; finished early? this is the reward</small></span>
+          <span class="slot__what">Russian, Armenian, chess, drama, music<small>45 min &middot; once the homework is done</small></span>
           <span class="slot__bar" aria-hidden="true"><i style="width:75%"></i></span>
         </div>
         <div class="slot">
@@ -702,7 +720,7 @@ a{ color:inherit; }
           <span class="slot__bar" aria-hidden="true"></span>
         </div>
       </div>
-      <p class="day__note"><span aria-hidden="true">&#9670;</span> Mornings run 7:00&ndash;8:00 a.m. with a walk to school. School breaks, in-service days and summer are full days, 7:00 a.m. to 6:00 p.m.</p>
+      <p class="day__note"><span aria-hidden="true">&#9670;</span> We collect your child from school &mdash; we do not take them in the morning. When school is closed &mdash; breaks, in-service days, summer &mdash; the house is open all day, 7:00 a.m. to 6:00 p.m.</p>
 
       <div class="shot-row">
         <figure class="shot">
@@ -711,7 +729,7 @@ a{ color:inherit; }
         </figure>
         <figure class="shot">
           <img src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260821_160459_f0bdc4fc-b47b-405c-ae06-6a9bd5bccb4d.png" alt="Three children doing homework together at a kitchen table.">
-          <figcaption>4:00 &mdash; all six at one table</figcaption>
+          <figcaption>4:00 &mdash; all eight at one table</figcaption>
         </figure>
         <figure class="shot">
           <img src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260821_153757_bc4fd702-c6f9-4a91-97c9-3ea4709ecf8f.png" alt="A child's hands writing in a lined notebook.">
@@ -731,22 +749,22 @@ a{ color:inherit; }
         <article class="strand">
           <span class="strand__tag">01 &middot; Every day</span>
           <h3>Homework, before you get home</h3>
-          <p>An hour at the kitchen table with one adult and five other children doing the same thing. Nobody saves it for nine at night. If your child finishes early they read; if they're stuck, Anna sits down next to them until they aren't.</p>
+          <p>An hour at the kitchen table with one adult and seven other children doing the same thing. Nobody saves it for nine at night. If your child finishes early they read; if they're stuck, Anna sits down next to them until they aren't.</p>
         </article>
         <article class="strand">
           <span class="strand__tag">02 &middot; Every day</span>
           <h3>Outside first, always</h3>
-          <p>Forty minutes in the yard before a single backpack is opened. Six children is enough for a real game and few enough that nobody spends the afternoon waiting for a turn.</p>
+          <p>Forty minutes in the yard before a single backpack is opened. Eight children is enough for a real game and few enough that nobody spends the afternoon waiting for a turn.</p>
         </article>
         <article class="strand">
           <span class="strand__tag">03 &middot; Weekly</span>
           <h3>Out of the house</h3>
-          <p>Glendale Central Library on Wednesdays. The farmers market, the fire station, Deukmejian Wilderness Park when the light lasts. Six children fit in places a group of thirty never will.</p>
+          <p>Glendale Central Library on Wednesdays. The farmers market, the fire station, Deukmejian Wilderness Park when the light lasts. Eight children fit in places a group of thirty never will.</p>
         </article>
         <article class="strand">
           <span class="strand__tag">04 &middot; When school is out</span>
           <h3>Full days on breaks</h3>
-          <p>Winter break, spring break, summer, and every in-service day on the district calendar. Same house, same six children, 7:00 a.m. to 6:00 p.m. &mdash; so you don't spend August rebuilding your childcare from scratch.</p>
+          <p>Winter break, spring break, summer, and every in-service day on the district calendar. Same house, same children, 7:00 a.m. to 6:00 p.m. &mdash; so you don't spend August rebuilding your childcare from scratch.</p>
         </article>
       </div>
 
@@ -775,7 +793,7 @@ a{ color:inherit; }
 
       <div class="provider">
         <div>
-          <span class="ratio-big">1:6<small>One adult &middot; six children &middot; no rotation</small></span>
+          <span class="ratio-big">1:8<small>One adult &middot; up to eight children &middot; no rotation</small></span>
           <figure class="shot provider__shot">
             <img src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260821_160459_ce383585-0cd4-4021-a2c5-e34d821ac993.png" alt="A child reading in an armchair beside a bookshelf.">
             <figcaption>5:00 onwards &mdash; homework done, book open</figcaption>
@@ -789,7 +807,7 @@ a{ color:inherit; }
           <h3>Anna Poghosyan</h3>
           <span class="provider__role">Licensed provider &middot; Licence #198022164</span>
           <p>Anna has looked after other people's children for more than fifteen years &mdash; first as an assistant teacher at a preschool on Broadway, then in her own home. She holds a California Child Development Associate Teacher Permit, is certified in pediatric CPR and first aid, and renews her health and safety training every two years.</p>
-          <p>She raised two children on this street. She opened the house to six because thirty was never the number that worked.</p>
+          <p>She raised two children on this street. She opened the house to eight because thirty was never the number that worked.</p>
           <p>The afternoon runs in English. Anna also speaks Armenian and Russian &mdash; which for a lot of families here means a grandparent can call and be understood.</p>
           <p>There is no second staff member and no substitute your child has never met. If Anna is unwell the house is closed that day, and you will know the night before.</p>
         </div>
@@ -810,55 +828,14 @@ a{ color:inherit; }
     <div class="wrap">
       <p class="eyebrow">Before you visit</p>
       <h2 class="h2">What this isn't.</h2>
-      <p class="lede" style="margin-top:20px">A house with six children trades a lot away. Better you read it here than find out in October.</p>
+      <p class="lede" style="margin-top:20px">A small house trades a lot away. Better you read it here than find out in October.</p>
 
       <ul class="nots">
-        <li><span><b>Child care, not a school.</b> Your child attends their own school. We take them from the last bell to your pickup, and full days when school is closed.</span></li>
-        <li><span><b>Six is the ceiling, set by the state.</b> Capacity 6, ages 5 to 13. There is no waiting list that quietly grows.</span></li>
-        <li><span><b>Walking pickup only.</b> We collect on foot from schools within walking distance of the house. No van, no driving, no freeway.</span></li>
-        <li><span><b>One adult.</b> Anna is the licensed provider. If she is sick, the house closes for the day.</span></li>
+        <li><span><b>Child care, not a school.</b> Your child attends their own school. We collect them at the last bell and keep them until you arrive, and we open full days when school is closed.</span></li>
+        <li><span><b>Eight is the ceiling, set by the state.</b> Capacity 8, ages 5 to 13. There is no waiting list that quietly grows.</span></li>
+        <li><span><b>Pickup, not drop-off.</b> We collect from school on foot &mdash; we do not take children to school in the morning.</span></li>
         <li><span><b>No care for sick children.</b> Fever, vomiting or anything contagious in the last 24 hours &mdash; please keep them home.</span></li>
-        <li><span><b>Not a special-education program.</b> We work alongside outside therapists gladly, but we can't deliver an IEP.</span></li>
       </ul>
-    </div>
-  </section>
-
-  <!-- RATES + ENROLLMENT -->
-  <section class="band" id="rates">
-    <div class="wrap money">
-      <div>
-        <p class="eyebrow">Rates &middot; 2026&ndash;27</p>
-        <span class="price">$850<small>per month &middot; after school, five days</small></span>
-        <ul class="price-notes">
-          <li><span>Before and after school</span> <b>$1,050 / mo</b></li>
-          <li><span>Three days a week</span> <b>$580 / mo</b></li>
-          <li><span>Full day, school breaks</span> <b>$85 / day</b></li>
-          <li><span>Full week, summer</span> <b>$375</b></li>
-          <li><span>Second child</span> <b>10% off</b></li>
-          <li><span>Registration, annual</span> <b>$150</b></li>
-          <li><span>Deposit to hold a place</span> <b>Two weeks</b></li>
-          <li><span>Subsidy programs</span> <b>Ask us</b></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="eyebrow">How enrollment works</p>
-        <h2 class="h2" style="margin-bottom:28px">Four steps, about two weeks.</h2>
-        <ol class="steps">
-          <li>
-            <div><h4>You come at 3:30</h4><p>While the afternoon is running, not after hours. You will see six children being six children. Bring your questions and about half an hour.</p></div>
-          </li>
-          <li>
-            <div><h4>Your child comes for an afternoon</h4><p>One ordinary afternoon, 2:30 to 6:00, no charge. No test and no assessment &mdash; we are both finding out whether it fits.</p></div>
-          </li>
-          <li>
-            <div><h4>We sit down together</h4><p>Half an hour with you and Anna. We say what we saw and what we would worry about. You do the same.</p></div>
-          </li>
-          <li>
-            <div><h4>Paperwork and a start date</h4><p>Enrollment forms, immunization records, emergency contacts, a release authorizing school pickup, and a deposit that holds the place.</p></div>
-          </li>
-        </ol>
-      </div>
     </div>
   </section>
 
@@ -874,20 +851,20 @@ a{ color:inherit; }
           <div class="faq__a"><p>No. This is a licensed family child care home. Your child goes to their own school; we take them from the last bell until you collect them, and we open full days when school is closed. Enrolling here changes nothing about where your child is enrolled for school.</p></div>
         </details>
         <details>
-          <summary>Which schools do you collect from?</summary>
-          <div class="faq__a"><p>Only schools within walking distance of the house. We collect on foot &mdash; there is no van and no driving. Tell us your child's school when you write and we'll say straight away whether it works.</p></div>
+          <summary>Do you pick up from school?</summary>
+          <div class="faq__a"><p>We collect your child ourselves, on foot, from any school within walking distance of the house &mdash; no van, no driving, no freeway. Call or text us with your child's school and we'll say straight away whether the walk works.</p></div>
         </details>
         <details>
           <summary>What are the hours?</summary>
-          <div class="faq__a"><p>Mornings 7:00 to 8:00 a.m., including the walk to school. Afternoons 2:30 to 6:00 p.m. On days when school is closed we run 7:00 a.m. to 6:00 p.m.</p><p>Six o'clock is a real deadline, not a suggestion &mdash; it is when Anna's own day ends.</p></div>
+          <div class="faq__a"><p>Afternoons 2:30 to 6:00 p.m., from the last bell until you collect them. On days when school is closed we are open all day, 7:00 a.m. to 6:00 p.m.</p><p>We collect children from school; we do not take them there in the morning.</p><p>Six o'clock is a real deadline, not a suggestion &mdash; it is when Anna's own day ends.</p></div>
         </details>
         <details>
           <summary>What happens on school holidays and over the summer?</summary>
-          <div class="faq__a"><p>The house is open full days through winter break, spring break, summer, and every in-service day on the district calendar. Same house, same six children. Those days can be booked by the day or by the week.</p></div>
+          <div class="faq__a"><p>The house is open full days through winter break, spring break, summer, and every in-service day on the district calendar. Same house, same children. Those days can be booked by the day or by the week.</p></div>
         </details>
         <details>
           <summary>Do you actually help with homework, or just supervise it?</summary>
-          <div class="faq__a"><p>Help. A full hour is set aside at 4:00, and with six children one adult can sit down next to each of them. Most children leave with it finished. If your child is stuck on the same thing week after week, you will hear it from us before you hear it from school.</p></div>
+          <div class="faq__a"><p>Help. A full hour is set aside at 4:00, and with eight children one adult can sit down next to each of them. Most children leave with it finished. If your child is stuck on the same thing week after week, you will hear it from us before you hear it from school.</p></div>
         </details>
         <details>
           <summary>What about food?</summary>
@@ -895,7 +872,7 @@ a{ color:inherit; }
         </details>
         <details>
           <summary>What if my child is sick? What if Anna is?</summary>
-          <div class="faq__a"><p>Children with a fever, vomiting or anything contagious in the last 24 hours stay home &mdash; in a house of six, one infection is all of them.</p><p>If Anna is unwell the house closes for that day. There is no second staff member. You will know the night before wherever possible, and those days are not billed.</p></div>
+          <div class="faq__a"><p>Children with a fever, vomiting or anything contagious in the last 24 hours stay home &mdash; in a house of eight, one infection is all of them.</p><p>If Anna is unwell the house closes for that day. There is no second staff member. You will know the night before wherever possible, and those days are not billed.</p></div>
         </details>
         <details>
           <summary>How do I check the licence?</summary>
@@ -903,7 +880,7 @@ a{ color:inherit; }
         </details>
         <details>
           <summary>How much notice if we leave?</summary>
-          <div class="faq__a"><p>Two weeks, in writing, and the deposit comes back. With six places, one child leaving without notice is a sixth of the year &mdash; so this matters more here than it would at a large centre.</p></div>
+          <div class="faq__a"><p>Two weeks, in writing, and the deposit comes back. With eight places, one child leaving without notice is an eighth of the year &mdash; so this matters more here than it would at a large centre.</p></div>
         </details>
       </div>
     </div>
@@ -913,105 +890,25 @@ a{ color:inherit; }
   <section class="wrap" style="padding-bottom:clamp(40px,5vw,72px)">
     <figure class="shot shot--band">
       <img src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260821_153757_b6909401-6d47-4d9d-9cbc-bf49f6b1f449.png" alt="Children's backpacks hanging on wooden hooks in the entryway.">
-      <figcaption>Six hooks by the door. There is no seventh.</figcaption>
+      <figcaption>Eight hooks by the door. There is no ninth.</figcaption>
     </figure>
   </section>
 
-  <!-- VISIT / FORM -->
+  <!-- VISIT -->
   <section class="band form" id="visit">
-    <div class="wrap form__grid">
-      <div>
-        <p class="eyebrow">Two places open</p>
-        <h2 class="h2">Come at 3:30, while it's noisy.</h2>
-        <p style="margin-top:18px;color:var(--ink-soft)">Visits happen during the afternoon, not after hours &mdash; the point is to see the house as it actually is. Fill this in and Anna writes back within two working days with two times that fit.</p>
-        <p style="margin-top:18px;color:var(--ink-soft)">Prefer to talk? <a href="tel:+18185550142" style="color:var(--berry)">(818) 555-0142</a>, best between 12:00 and 2:00.</p>
-        <p class="form__note">Nothing here is a commitment. No place is held until you have visited.</p>
-      </div>
+    <div class="wrap">
+      <p class="eyebrow">Four places open</p>
+      <h2 class="h2">Come at 3:30, while it's noisy.</h2>
+      <p class="lede" style="margin-top:20px">Visits happen during the afternoon, not after hours &mdash; the point is to see the house as it actually is. Call or text Anna and she will offer you two times that fit.</p>
 
-      <div>
-        <form id="visitForm" novalidate>
-          <div class="field--split">
-            <div class="field">
-              <label for="parentName">Your name <span class="req">*</span></label>
-              <input id="parentName" name="parentName" type="text" autocomplete="name">
-              <span class="err">Please tell us your name.</span>
-            </div>
-            <div class="field">
-              <label for="parentEmail">Email <span class="req">*</span></label>
-              <input id="parentEmail" name="parentEmail" type="email" autocomplete="email">
-              <span class="err">Please check this email address.</span>
-            </div>
-          </div>
-
-          <div class="field--split">
-            <div class="field">
-              <label for="parentPhone">Phone</label>
-              <input id="parentPhone" name="parentPhone" type="tel" autocomplete="tel">
-            </div>
-            <div class="field">
-              <label for="childName">Child's first name</label>
-              <input id="childName" name="childName" type="text">
-            </div>
-          </div>
-
-          <div class="field--split">
-            <div class="field">
-              <label for="childAge">Child's age <span class="req">*</span></label>
-              <select id="childAge" name="childAge">
-                <option value="">Select&hellip;</option>
-                <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option>
-                <option>10</option><option>11</option><option>12</option><option>13</option>
-              </select>
-              <span class="err">We take ages 5 to 13.</span>
-            </div>
-            <div class="field">
-              <label for="childSchool">Child's school</label>
-              <input id="childSchool" name="childSchool" type="text" placeholder="So we can check the walk">
-            </div>
-          </div>
-
-          <div class="field" id="needField">
-            <span class="legend">What you need <span class="req">*</span></span>
-            <div class="checks">
-              <label class="check"><input type="checkbox" name="need" value="After school, 2:30-6:00"><span>After school, 2:30&ndash;6:00 p.m.</span></label>
-              <label class="check"><input type="checkbox" name="need" value="Before school, 7:00-8:00"><span>Before school, 7:00&ndash;8:00 a.m.</span></label>
-              <label class="check"><input type="checkbox" name="need" value="Full days when school is closed"><span>Full days when school is closed</span></label>
-              <label class="check"><input type="checkbox" name="need" value="Summer"><span>Summer</span></label>
-            </div>
-            <span class="err">Pick at least one.</span>
-          </div>
-
-          <div class="field--split">
-            <div class="field">
-              <label for="daysWeek">Days per week</label>
-              <select id="daysWeek" name="daysWeek">
-                <option>5</option><option>4</option><option>3</option><option>2</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="startDate">Ideal start</label>
-              <input id="startDate" name="startDate" type="date">
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="notes">Anything we should know</label>
-            <textarea id="notes" name="notes" placeholder="Allergies, an IEP, a sibling, a tricky pickup &mdash; anything at all."></textarea>
-          </div>
-
-          <button class="btn" type="button" id="submitBtn">Request a visit <span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
-        </form>
-
-        <div class="form__done" id="formDone">
-          <h3>Thank you &mdash; that is everything we need.</h3>
-          <p>Anna writes back within two working days. Here is what you sent:</p>
-          <dl id="doneList"></dl>
-          <div class="form__actions">
-            <a class="btn" id="mailBtn" href="#">Send it by email <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-            <button class="btn btn--ghost" type="button" id="againBtn">Edit and resend</button>
-          </div>
-          <p class="form__note">Prototype: no server behind this form yet. The button opens your mail app with everything filled in.</p>
+      <div class="contact">
+        <a class="contact__phone" href="tel:+17477447888">(747)&nbsp;744-7888</a>
+        <div class="contact__actions">
+          <a class="btn" href="tel:+17477447888">Call Anna <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn--ghost" href="sms:+17477447888">Send a text <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn--ghost" href="mailto:hello@poghosyanchildcare.com">Write an email <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
         </div>
+        <p class="contact__note">Anna answers herself. Ask about places, hours, your child's school and what it costs &mdash; it is a short conversation, and nothing is held until you have visited.</p>
       </div>
     </div>
   </section>
@@ -1028,11 +925,11 @@ a{ color:inherit; }
       <div>
         <h5>Get in touch</h5>
         <a href="mailto:hello@poghosyanchildcare.com">hello@poghosyanchildcare.com</a>
-        <a href="tel:+18185550142">(818) 555-0142</a>
+        <a href="tel:+17477447888">(747) 744-7888</a>
       </div>
       <div>
         <h5>Hours</h5>
-        <p>Mon&ndash;Fri 7:00&ndash;8:00 a.m.<br>and 2:30&ndash;6:00 p.m.<br>Full days when school is out</p>
+        <p>Mon&ndash;Fri 2:30&ndash;6:00 p.m.<br>Full days when school is out,<br>7:00 a.m.&ndash;6:00 p.m.</p>
       </div>
       <div>
         <h5>Licensing questions</h5>
@@ -1041,83 +938,12 @@ a{ color:inherit; }
       </div>
     </div>
     <div class="foot__legal">
-      <span>Licensed Family Day Care Home #198022164 &middot; California Department of Social Services, Community Care Licensing Division &middot; Effective June 23, 2026 &middot; Capacity 6, ages 5&ndash;13.</span>
+      <span>Licensed Family Day Care Home #198022164 &middot; California Department of Social Services, Community Care Licensing Division &middot; Effective June 23, 2026 &middot; Capacity 8, ages 5&ndash;13.</span>
       <span>Maryland Family Child Care admits children of any race, color, religion and national origin.</span>
     </div>
   </div>
 </footer>
 
 
-<script>
-(function(){
-  var f=document.getElementById('visitForm');
-  if(!f){return;}
-  var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  function mark(el,bad){ el.closest('.field').classList.toggle('is-bad',bad); }
-  function val(id){ var e=document.getElementById(id); return e?e.value.trim():''; }
-
-  document.getElementById('submitBtn').addEventListener('click',function(){
-    var ok=true;
-    [['parentName',function(v){return !!v;}],
-     ['parentEmail',function(v){return EMAIL.test(v);}],
-     ['childAge',function(v){return !!v;}]].forEach(function(pair){
-       var el=document.getElementById(pair[0]);
-       var good=pair[1](el.value.trim());
-       mark(el,!good); if(!good){ok=false;}
-     });
-
-    var picked=[].slice.call(f.querySelectorAll('input[name="need"]:checked'))
-                 .map(function(c){return c.value;});
-    document.getElementById('needField').classList.toggle('is-bad',picked.length===0);
-    if(!picked.length){ok=false;}
-
-    if(!ok){
-      var first=f.querySelector('.is-bad');
-      if(first){first.scrollIntoView({block:'center',behavior:'smooth'});}
-      return;
-    }
-
-    var rows=[
-      ['Parent',   val('parentName')],
-      ['Email',    val('parentEmail')],
-      ['Phone',    val('parentPhone')||'not given'],
-      ['Child',    (val('childName')||'not given')+', age '+val('childAge')],
-      ['School',   val('childSchool')||'not given'],
-      ['Needs',    picked.join('; ')],
-      ['Days/week',val('daysWeek')],
-      ['Start',    val('startDate')||'flexible'],
-      ['Notes',    val('notes')||'none']
-    ];
-
-    var dl=document.getElementById('doneList');
-    dl.innerHTML='';
-    rows.forEach(function(r){
-      var row=document.createElement('div');
-      var dt=document.createElement('dt'); dt.textContent=r[0];
-      var dd=document.createElement('dd'); dd.textContent=r[1];
-      row.appendChild(dt); row.appendChild(dd); dl.appendChild(row);
-    });
-
-    var body=rows.map(function(r){return r[0]+': '+r[1];}).join('\n');
-    document.getElementById('mailBtn').href=
-      'mailto:hello@poghosyanchildcare.com?subject='+
-      encodeURIComponent('Visit request - '+val('parentName'))+
-      '&body='+encodeURIComponent(body);
-
-    f.style.display='none';
-    var done=document.getElementById('formDone');
-    done.style.display='block';
-    done.scrollIntoView({block:'center',behavior:'smooth'});
-  });
-
-  document.getElementById('againBtn').addEventListener('click',function(){
-    document.getElementById('formDone').style.display='none';
-    f.style.display='block';
-    f.scrollIntoView({block:'center',behavior:'smooth'});
-  });
-
-  f.addEventListener('submit',function(e){ e.preventDefault(); });
-})();
-</script>
 </body>
 </html>
