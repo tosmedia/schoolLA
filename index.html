@@ -470,6 +470,9 @@ a{ color:inherit; }
   background:var(--paper-warm);
 }
 .shot--band img{ aspect-ratio:21/9; object-fit:cover; }
+@media (max-width:760px){
+  .shot--full img{ aspect-ratio:1280/714; object-fit:contain; }
+}
 .shot figcaption{
   font-family:var(--mono); font-size:11.5px; letter-spacing:.04em;
   color:var(--ink-soft); margin-top:10px;
@@ -661,7 +664,7 @@ a{ color:inherit; }
 
   <!-- THE HOUSE -->
   <section class="wrap" style="padding-top:clamp(40px,5vw,72px)">
-    <figure class="shot shot--band">
+    <figure class="shot shot--band shot--full">
       <img src="photos/house.jpg" width="1280" height="714" alt="Children reading and playing in the front yard of the house on N Maryland Avenue in the late afternoon.">
       <figcaption>546 N Maryland Ave &middot; the whole school is this house</figcaption>
     </figure>
