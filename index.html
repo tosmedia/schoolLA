@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
 <title>Maryland Family Child Care — up to eight children, ages 5–13, Glendale CA</title>
-<meta name="description" content="Maryland Family Child Care — a licensed family child care home on N Maryland Avenue in Glendale, California. Up to eight children, ages 5 to 13, one provider. Licence #198022164.">
+<meta name="description" content="Maryland Family Child Care — a licensed family child care home on N Maryland Avenue in Glendale, California. Up to eight children, ages 5 to 13, one provider.">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PHJlY3Qgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iMTAiIGZpbGw9IiNGNkY3RjIiLz48cGF0aCBkPSJNNi4wIDI1LjUgTDI4LjAgNy4wIEw1MC4wIDI1LjUgTDUwLjAgNDguMCBMNi4wIDQ4LjAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTczNDJDIiBzdHJva2Utd2lkdGg9IjIuNiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjE4LjAiIGN5PSIzMS41IiByPSIyLjkiIGZpbGw9IiMxNzM0MkMiLz48Y2lyY2xlIGN4PSIyOC4wIiBjeT0iMzEuNSIgcj0iMi45IiBmaWxsPSIjMTczNDJDIi8+PGNpcmNsZSBjeD0iMzguMCIgY3k9IjMxLjUiIHI9IjIuOSIgZmlsbD0iIzE3MzQyQyIvPjxjaXJjbGUgY3g9IjE4LjAiIGN5PSI0MS4wIiByPSIyLjkiIGZpbGw9IiMxNzM0MkMiLz48Y2lyY2xlIGN4PSIyOC4wIiBjeT0iNDEuMCIgcj0iMi45IiBmaWxsPSIjMTczNDJDIi8+PGNpcmNsZSBjeD0iMzguMCIgY3k9IjQxLjAiIHI9IjIuOSIgZmlsbD0iI0UwQTAyQSIvPjwvc3ZnPg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,19 +112,51 @@ a{ color:inherit; }
   backdrop-filter:blur(10px);
   border-bottom:1px solid var(--rule);
 }
-.nav__in{ display:flex; align-items:center; gap:24px; min-height:66px; }
+.nav__in{ display:flex; align-items:center; gap:24px; min-height:84px; padding-block:12px; }
 .brand{ display:flex; align-items:center; gap:13px; text-decoration:none; margin-right:auto; }
 .brand__mark{ flex:none; display:block; }
+.brand__text{ display:block; }
 .brand__name{
   font-family:var(--body); font-style:italic; font-weight:500;
-  font-size:25px; line-height:1; letter-spacing:0;
-  display:block; color:var(--ink);
+  font-size:clamp(26px,2.4vw,34px); line-height:1; letter-spacing:0;
+  display:block; color:var(--ink); white-space:nowrap;
 }
 .brand__meta{
   font-family:var(--mono); font-size:10.5px; letter-spacing:.11em;
   text-transform:uppercase; color:var(--ink-soft);
-  display:block; margin-top:5px;
+  display:block; margin-top:5px; white-space:nowrap;
 }
+.brand__meta + .brand__meta{ margin-top:2px; }
+@media (max-width:440px){
+  .brand{ gap:10px; }
+  .brand__name{ font-size:24px; }
+  .brand__meta{ font-size:9.5px; letter-spacing:.07em; }
+}
+@media (max-width:380px){
+  .nav__in{ gap:14px; }
+  .brand__mark{ width:30px; height:30px; }
+  .brand__meta{ font-size:9px; letter-spacing:.05em; }
+}
+@media (max-width:345px){
+  .nav__in{ flex-wrap:wrap; row-gap:12px; }
+  .brand{ margin-right:0; }
+  .nav__in > .btn{ width:100%; justify-content:center; }
+}
+.nav__contact{
+  display:flex; flex-direction:column; align-items:flex-end; gap:3px;
+  text-align:right; margin-left:6px;
+}
+.nav__phone{
+  font-family:var(--mono); font-size:13.5px; font-weight:500;
+  letter-spacing:.02em; color:var(--ink); text-decoration:none;
+  transition:color .2s;
+}
+.nav__phone:hover{ color:var(--berry); }
+.nav__addr{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.06em;
+  color:var(--ink-soft);
+}
+@media (max-width:1120px){ .nav__contact{ display:none; } }
 .nav__links{ display:flex; gap:26px; }
 .nav__links a{
   font-family:var(--mono); font-size:12.5px; letter-spacing:.05em;
@@ -254,6 +286,31 @@ a{ color:inherit; }
   border:1.5px dashed var(--mark); border-radius:50%;
   margin-right:5px;
 }
+.roster--slim{ margin-top:clamp(22px,2.6vw,32px); }
+.roster--slim .roster__foot{ margin-top:0; justify-content:space-between; }
+.roster--slim .count{ font-size:14.5px; }
+
+/* ── contact modal ───────────────────────── */
+.modal{ position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center; padding:20px; }
+.modal[hidden]{ display:none; }
+.modal__backdrop{ position:absolute; inset:0; background:rgba(23,52,44,.55); backdrop-filter:blur(3px); }
+.modal__panel{
+  position:relative; width:min(560px,100%); max-height:90vh; overflow:auto;
+  background:var(--chalk); border:1px solid var(--rule); border-radius:4px;
+  padding:clamp(26px,3.4vw,42px);
+  box-shadow:0 24px 60px rgba(23,52,44,.22);
+}
+.modal__x{
+  position:absolute; top:10px; right:14px; border:0; background:none;
+  font-size:26px; line-height:1; color:var(--ink-soft); cursor:pointer; padding:6px;
+}
+.modal__x:hover{ color:var(--berry); }
+.modal__h{ font-family:var(--display); font-weight:700; letter-spacing:-.03em;
+  font-size:clamp(24px,2.4vw,32px); line-height:1.05; margin:0 0 22px; }
+.modal .contact__phone{ font-size:clamp(32px,4.4vw,50px); }
+.modal .contact__actions{ margin-top:22px; }
+.modal__form{ margin-top:28px; padding-top:24px; border-top:1px solid var(--rule); }
+.modal__form .btn{ margin-top:4px; }
 
 @media (prefers-reduced-motion: no-preference){
   .seat{ opacity:0; transform:translateY(10px); animation:seatIn .5s cubic-bezier(.22,.7,.3,1) forwards; }
@@ -453,7 +510,7 @@ a{ color:inherit; }
 }
 .foot p, .foot a{
   font-size:15.5px; color:var(--ink); text-decoration:none;
-  line-height:1.55; display:block;
+  line-height:1.55; display:block; overflow-wrap:anywhere;
 }
 .foot a:hover{ color:var(--berry); }
 .foot__legal{
@@ -470,9 +527,7 @@ a{ color:inherit; }
   background:var(--paper-warm);
 }
 .shot--band img{ aspect-ratio:21/9; object-fit:cover; }
-@media (max-width:760px){
-  .shot--full img{ aspect-ratio:1280/714; object-fit:contain; }
-}
+.shot--full img{ aspect-ratio:1377/768; object-fit:contain; }
 .shot figcaption{
   font-family:var(--mono); font-size:11.5px; letter-spacing:.04em;
   color:var(--ink-soft); margin-top:10px;
@@ -588,9 +643,10 @@ a{ color:inherit; }
       <svg class="brand__mark" width="35" height="35" viewBox="0 0 56 56" fill="none" aria-hidden="true">
         <path d="M6.0 25.5 L28.0 7.0 L50.0 25.5 L50.0 48.0 L6.0 48.0 Z" fill="none" stroke="#17342C" stroke-width="2.6" stroke-linejoin="round"/><circle cx="18.0" cy="31.5" r="2.9" fill="#17342C"/><circle cx="28.0" cy="31.5" r="2.9" fill="#17342C"/><circle cx="38.0" cy="31.5" r="2.9" fill="#17342C"/><circle cx="18.0" cy="41.0" r="2.9" fill="#17342C"/><circle cx="28.0" cy="41.0" r="2.9" fill="#17342C"/><circle cx="38.0" cy="41.0" r="2.9" fill="#E0A02A"/>
       </svg>
-      <span>
+      <span class="brand__text">
         <span class="brand__name">Maryland</span>
-        <span class="brand__meta">Family Child Care &middot; Glendale</span>
+        <span class="brand__meta">Family Child Care</span>
+        <span class="brand__meta">Glendale</span>
       </span>
     </a>
     <nav class="nav__links" aria-label="Main">
@@ -598,6 +654,10 @@ a{ color:inherit; }
       <a href="#anna">Anna</a>
       <a href="#faq">FAQ</a>
     </nav>
+    <div class="nav__contact">
+      <a class="nav__phone" href="tel:+17477447888">+1 (747) 744-7888</a>
+      <span class="nav__addr">546 N Maryland Ave &middot; Glendale, CA 91206</span>
+    </div>
     <a class="btn" href="#visit">Call or text <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
   </div>
 </header>
@@ -608,7 +668,7 @@ a{ color:inherit; }
   <section class="wrap hero">
     <div class="hero__grid">
       <div>
-        <p class="eyebrow">Licensed home &middot; Ages 5&ndash;13 &middot; Glendale, CA</p>
+        <p class="eyebrow">Licensed home &middot; Ages 5&ndash;13</p>
         <h1>The hours after school are the ones that <em>build a child.</em></h1>
       </div>
       <div class="hero__side">
@@ -616,58 +676,17 @@ a{ color:inherit; }
       </div>
     </div>
 
-    <div class="roster">
-      <div class="roster__head">
-        <span>Who's here this year</span>
-        <span>Licensed capacity: 8</span>
-      </div>
-      <ul class="seats">
-        <li class="seat" style="animation-delay:.02s">
-          <img class="seat__photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260822_012053_d25e6be0-ff3c-4ae3-bdf3-32617c013181.png" alt="Nareh, eight, at the kitchen table.">
-          <span class="seat__meta"><span class="seat__name">Nareh</span><span class="seat__age">8 &middot; 3rd year</span></span>
-        </li>
-        <li class="seat" style="animation-delay:.06s">
-          <img class="seat__photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260822_012053_06c588d7-3a60-4bb6-8341-0cb52d881f85.png" alt="Aram, eleven, in the backyard.">
-          <span class="seat__meta"><span class="seat__name">Aram</span><span class="seat__age">11 &middot; 2nd year</span></span>
-        </li>
-        <li class="seat" style="animation-delay:.10s">
-          <img class="seat__photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260822_012118_d28d0c70-002a-4241-b038-53a4ab70b91d.png" alt="Lucy, seven, by the bookshelf.">
-          <span class="seat__meta"><span class="seat__name">Lucy</span><span class="seat__age">7 &middot; 1st year</span></span>
-        </li>
-        <li class="seat" style="animation-delay:.14s">
-          <img class="seat__photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260822_012053_078bf1f5-f1ff-4a6a-83ab-d6112b182945.png" alt="Emil, ten, in the doorway.">
-          <span class="seat__meta"><span class="seat__name">Emil</span><span class="seat__age">10 &middot; 2nd year</span></span>
-        </li>
-        <li class="seat seat--open" style="animation-delay:.18s"><span class="seat__name">Open</span><span class="seat__age">ages 5&ndash;13</span></li>
-        <li class="seat seat--open" style="animation-delay:.22s"><span class="seat__name">Open</span><span class="seat__age">ages 5&ndash;13</span></li>
-        <li class="seat seat--open" style="animation-delay:.26s"><span class="seat__name">Open</span><span class="seat__age">ages 5&ndash;13</span></li>
-        <li class="seat seat--open" style="animation-delay:.30s"><span class="seat__name">Open</span><span class="seat__age">ages 5&ndash;13</span></li>
-      </ul>
-      <div class="roster__foot">
-        <p class="count"><b>4 enrolled</b> &middot; <span class="open-dot" aria-hidden="true"></span><b>4 places open.</b> When they fill, the list closes until someone ages out.</p>
-        <a class="btn btn--ghost" href="#visit">Come see the house <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- LICENCE STRIP -->
-  <section class="licence" aria-label="Licence details">
-    <div class="wrap">
-      <dl class="licence__in">
-        <div class="lic"><dt>Licence number</dt><dd>198022164</dd></div>
-        <div class="lic"><dt>Issued by</dt><dd>CA Dept. of Social Services</dd></div>
-        <div class="lic"><dt>Facility type</dt><dd>Family Day Care Home</dd></div>
-        <div class="lic"><dt>Effective</dt><dd>June 23, 2026</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- THE HOUSE -->
-  <section class="wrap" style="padding-top:clamp(40px,5vw,72px)">
-    <figure class="shot shot--band shot--full">
-      <img src="photos/house.jpg" width="1280" height="714" alt="Children reading and playing in the front yard of the house on N Maryland Avenue in the late afternoon.">
+    <figure class="shot shot--band shot--full" style="margin-top:clamp(30px,4vw,52px)">
+      <img src="photos/house.webp" width="1377" height="768" alt="The house on N Maryland Avenue in the late afternoon, the porch lit and the sign above it.">
       <figcaption>546 N Maryland Ave &middot; the whole school is this house</figcaption>
     </figure>
+
+    <div class="roster roster--slim">
+      <div class="roster__foot">
+        <p class="count"><span class="open-dot" aria-hidden="true"></span><b>We ensure pickup from school.</b></p>
+        <button class="btn btn--ghost" type="button" data-open-contact>Come see the house <span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
+      </div>
+    </div>
   </section>
 
   <!-- AN ORDINARY AFTERNOON -->
@@ -678,47 +697,41 @@ a{ color:inherit; }
           <p class="eyebrow">An ordinary Tuesday</p>
           <h2 class="h2">School lets out. Then this.</h2>
         </div>
-        <p class="lede">Bars show how long each block actually runs. Homework is the longest one on purpose &mdash; the point is that your child walks through your door already done.</p>
       </div>
-
-      <figure class="shot shot--band" style="margin-bottom:clamp(30px,3.5vw,44px)">
-        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260821_160459_88bf2172-52a9-4507-947e-21e5d163fccc.png" alt="Two children walking home from school with backpacks, seen from behind.">
-        <figcaption>2:30 &mdash; the walk over, four blocks</figcaption>
-      </figure>
 
       <div class="timetable">
         <div class="slot">
-          <span class="slot__time">2:30</span>
-          <span class="slot__what">Walk-over and arrival<small>30 min &middot; collected on foot from school</small></span>
+          <span class="slot__time">01</span>
+          <span class="slot__what">Pick up from school by car<small>30 min &middot; we collect your child ourselves</small></span>
           <span class="slot__bar" aria-hidden="true"><i style="width:50%"></i></span>
         </div>
         <div class="slot">
-          <span class="slot__time">3:00</span>
+          <span class="slot__time">02</span>
           <span class="slot__what">Snack at the kitchen table<small>20 min &middot; all eight, sitting down</small></span>
           <span class="slot__bar" aria-hidden="true"><i style="width:33%"></i></span>
         </div>
         <div class="slot">
-          <span class="slot__time">3:20</span>
-          <span class="slot__what">Outside in the yard<small>40 min &middot; before anyone opens a backpack</small></span>
+          <span class="slot__time">03</span>
+          <span class="slot__what">Outside in the yard<small>40 min &middot; a basketball hoop in the back yard, before anyone opens a backpack</small></span>
           <span class="slot__bar" aria-hidden="true"><i style="width:67%"></i></span>
         </div>
         <div class="slot slot--long">
-          <span class="slot__time">4:00</span>
+          <span class="slot__time">04</span>
           <span class="slot__what">Homework, one on one<small>60 min &middot; the whole reason this hour exists</small></span>
           <span class="slot__bar" aria-hidden="true"><i style="width:100%"></i></span>
         </div>
         <div class="slot">
-          <span class="slot__time">5:00</span>
+          <span class="slot__time">05</span>
           <span class="slot__what">Russian, Armenian, chess, drama, music<small>45 min &middot; once the homework is done</small></span>
           <span class="slot__bar" aria-hidden="true"><i style="width:75%"></i></span>
         </div>
         <div class="slot">
-          <span class="slot__time">5:45</span>
+          <span class="slot__time">06</span>
           <span class="slot__what">Tidy up and read-aloud<small>15 min &middot; the house is left as we found it</small></span>
           <span class="slot__bar" aria-hidden="true"><i style="width:25%"></i></span>
         </div>
         <div class="slot">
-          <span class="slot__time">6:00</span>
+          <span class="slot__time">07</span>
           <span class="slot__what">Pickup<small>at the front door on N Maryland Ave</small></span>
           <span class="slot__bar" aria-hidden="true"></span>
         </div>
@@ -737,52 +750,6 @@ a{ color:inherit; }
         <figure class="shot">
           <img src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260821_153757_bc4fd702-c6f9-4a91-97c9-3ea4709ecf8f.png" alt="A child's hands writing in a lined notebook.">
           <figcaption>4:40 &mdash; nearly done</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHAT THEY DO -->
-  <section class="band rule-top" id="learn">
-    <div class="wrap">
-      <p class="eyebrow">Four things this house is for</p>
-      <h2 class="h2">What a nine-year-old actually does here.</h2>
-
-      <div class="strands">
-        <article class="strand">
-          <span class="strand__tag">01 &middot; Every day</span>
-          <h3>Homework, before you get home</h3>
-          <p>An hour at the kitchen table with one adult and seven other children doing the same thing. Nobody saves it for nine at night. If your child finishes early they read; if they're stuck, Anna sits down next to them until they aren't.</p>
-        </article>
-        <article class="strand">
-          <span class="strand__tag">02 &middot; Every day</span>
-          <h3>Outside first, always</h3>
-          <p>Forty minutes in the yard before a single backpack is opened. Eight children is enough for a real game and few enough that nobody spends the afternoon waiting for a turn.</p>
-        </article>
-        <article class="strand">
-          <span class="strand__tag">03 &middot; Weekly</span>
-          <h3>Out of the house</h3>
-          <p>Glendale Central Library on Wednesdays. The farmers market, the fire station, Deukmejian Wilderness Park when the light lasts. Eight children fit in places a group of thirty never will.</p>
-        </article>
-        <article class="strand">
-          <span class="strand__tag">04 &middot; When school is out</span>
-          <h3>Full days on breaks</h3>
-          <p>Winter break, spring break, summer, and every in-service day on the district calendar. Same house, same children, 7:00 a.m. to 6:00 p.m. &mdash; so you don't spend August rebuilding your childcare from scratch.</p>
-        </article>
-      </div>
-
-      <div class="shot-row">
-        <figure class="shot">
-          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260821_160459_85856830-f441-470e-a08f-ec205cd3b518.png" alt="A child mid-hop on a chalk hopscotch grid on the patio.">
-          <figcaption>The patio, repainted in chalk most weeks</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260821_160459_fb9d039c-2fc6-4e1f-ae1c-61a773712432.png" alt="Four children eating an afternoon snack at the kitchen table.">
-          <figcaption>3:00 &mdash; snack, sitting down, all together</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/hf_20260821_153757_0d88cdeb-eb80-4696-81c4-bcb252caee15.png" alt="A small backyard with chalk drawings and a lemon tree.">
-          <figcaption>The yard, empty about four hours a day</figcaption>
         </figure>
       </div>
     </div>
@@ -808,7 +775,7 @@ a{ color:inherit; }
         </div>
         <div class="provider__card">
           <h3>Anna Poghosyan</h3>
-          <span class="provider__role">Licensed provider &middot; Licence #198022164</span>
+          <span class="provider__role">Licensed provider</span>
           <p>Anna has looked after other people's children for more than fifteen years &mdash; first as an assistant teacher at a preschool on Broadway, then in her own home. She holds a California Child Development Associate Teacher Permit, is certified in pediatric CPR and first aid, and renews her health and safety training every two years.</p>
           <p>She raised two children on this street. She opened the house to eight because thirty was never the number that worked.</p>
           <p>The afternoon runs in English. Anna also speaks Armenian and Russian &mdash; which for a lot of families here means a grandparent can call and be understood.</p>
@@ -836,7 +803,7 @@ a{ color:inherit; }
       <ul class="nots">
         <li><span><b>Child care, not a school.</b> Your child attends their own school. We collect them at the last bell and keep them until you arrive, and we open full days when school is closed.</span></li>
         <li><span><b>Eight is the ceiling, set by the state.</b> Capacity 8, ages 5 to 13. There is no waiting list that quietly grows.</span></li>
-        <li><span><b>Pickup, not drop-off.</b> We collect from school on foot &mdash; we do not take children to school in the morning.</span></li>
+        <li><span><b>Pickup, not drop-off.</b> We collect your child from school by car &mdash; we do not take them to school in the morning.</span></li>
         <li><span><b>No care for sick children.</b> Fever, vomiting or anything contagious in the last 24 hours &mdash; please keep them home.</span></li>
       </ul>
     </div>
@@ -855,7 +822,7 @@ a{ color:inherit; }
         </details>
         <details>
           <summary>Do you pick up from school?</summary>
-          <div class="faq__a"><p>We collect your child ourselves, on foot, from any school within walking distance of the house &mdash; no van, no driving, no freeway. Call or text us with your child's school and we'll say straight away whether the walk works.</p></div>
+          <div class="faq__a"><p>Yes. We collect your child from school ourselves, by car, and bring them back to the house. Call or text us with your child's school and we'll say straight away whether it works.</p></div>
         </details>
         <details>
           <summary>What are the hours?</summary>
@@ -879,7 +846,7 @@ a{ color:inherit; }
         </details>
         <details>
           <summary>How do I check the licence?</summary>
-          <div class="faq__a"><p>Licence #198022164, issued by the California Department of Social Services, Community Care Licensing Division. Anyone can look up a facility number, its inspection history and any complaints on the department's public site. We would rather you did.</p></div>
+          <div class="faq__a"><p>The house is licensed by the California Department of Social Services, Community Care Licensing Division. Ask us for the licence number &mdash; anyone can then look up the facility, its inspection history and any complaints on the department's public site. We would rather you did.</p></div>
         </details>
         <details>
           <summary>How much notice if we leave?</summary>
@@ -941,12 +908,93 @@ a{ color:inherit; }
       </div>
     </div>
     <div class="foot__legal">
-      <span>Licensed Family Day Care Home #198022164 &middot; California Department of Social Services, Community Care Licensing Division &middot; Effective June 23, 2026 &middot; Capacity 8, ages 5&ndash;13.</span>
+      <span>Licensed Family Day Care Home &middot; California Department of Social Services, Community Care Licensing Division &middot; Capacity 8, ages 5&ndash;13.</span>
       <span>Maryland Family Child Care admits children of any race, color, religion and national origin.</span>
     </div>
   </div>
 </footer>
 
+
+<div class="modal" id="contactModal" hidden>
+  <div class="modal__backdrop" data-close-contact></div>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <button class="modal__x" type="button" data-close-contact aria-label="Close">&times;</button>
+    <p class="eyebrow">Come and see the house</p>
+    <h3 class="modal__h" id="contactTitle">Call Anna, or leave your number.</h3>
+
+    <a class="contact__phone" href="tel:+17477447888">+1&nbsp;(747)&nbsp;744-7888</a>
+    <div class="contact__actions">
+      <a class="btn" href="tel:+17477447888">Call <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn--ghost" href="sms:+17477447888">Send a text <span class="btn__arrow" aria-hidden="true">&rarr;</span></a>
+    </div>
+
+    <form class="modal__form" id="callbackForm" novalidate>
+      <div class="field--split">
+        <div class="field">
+          <label for="cbName">Your name</label>
+          <input id="cbName" name="cbName" type="text" autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="cbPhone">Your phone <span class="req">*</span></label>
+          <input id="cbPhone" name="cbPhone" type="tel" autocomplete="tel">
+          <span class="err">Please leave a number we can call.</span>
+        </div>
+      </div>
+      <button class="btn" type="submit">Ask Anna to call back <span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
+      <p class="form__note">This opens your own messages app with the text already written &mdash; nothing is sent from this page.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  var modal = document.getElementById('contactModal');
+  if(!modal){ return; }
+  var lastFocus = null;
+
+  function open(e){
+    if(e){ e.preventDefault(); }
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var f = modal.querySelector('a, button, input');
+    if(f){ f.focus(); }
+  }
+  function close(){
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    if(lastFocus && lastFocus.focus){ lastFocus.focus(); }
+  }
+
+  document.querySelectorAll('[data-open-contact]').forEach(function(el){
+    el.addEventListener('click', open);
+  });
+  modal.querySelectorAll('[data-close-contact]').forEach(function(el){
+    el.addEventListener('click', close);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !modal.hidden){ close(); }
+  });
+
+  var form = document.getElementById('callbackForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var phone = document.getElementById('cbPhone');
+    var name  = document.getElementById('cbName').value.trim();
+    var field = phone.closest('.field');
+    if(!phone.value.trim()){
+      field.classList.add('is-bad');
+      phone.focus();
+      return;
+    }
+    field.classList.remove('is-bad');
+    var text = 'Hi Anna' + (name ? ', this is ' + name : '') +
+               '. Could you call me back on ' + phone.value.trim() +
+               '? I would like to come and see the house.';
+    window.location.href = 'sms:+17477447888?&body=' + encodeURIComponent(text);
+  });
+})();
+</script>
 
 </body>
 </html>
