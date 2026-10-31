@@ -101,3 +101,16 @@
 - Из FAQ убран вопрос «What if my child is sick? What if Anna is?».
 - STATUS переписан под текущее состояние; PROJECT_CONTEXT обновлён (логотип, часы, дни без школы, разделы, шрифты); в WORKFLOW проект Claude назван «Maryland».
 - Запушено `d545899` (без вопроса про болезнь; blob `38b300ed` совпал). Документы, `check_site.py` и `CLAUDE.md` синхронизированы в GitHub (`f70aec0`, `cde8a07` и следующий коммит). В `check_site.py` экранированный u00a0 в регулярке стал литеральным неразрывным пробелом — поведение то же.
+
+## 2026-10-31 — убрано фото двора
+- По просьбе Эдварда убран блок DUSK: фото двора на закате и подпись «5:40 — twenty minutes before the first pickup». Хот-линков на CDN стало 4.
+- Из FAQ убран вопрос «What about food?». В FAQ осталось 7 вопросов.
+- Запушено `3761342` (без фото двора и вопроса про еду).
+- Убраны: вопрос FAQ «How much notice if we leave?» (в FAQ 6 вопросов), фото с рюкзаками на крючках и подпись «Eight hooks by the door…», в блоке контактов — «Four places open», «Come at 3:30, while it's noisy.» и абзац про визиты. Блок контактов начинается сразу с номера. Хот-линков на CDN осталось 3 (три фото под расписанием).
+- Запушено `311ff62`.
+- В блоке контактов кнопки «Send a text» и «Write an email» заменены одной кнопкой «Send a message» (открывает окно письма).
+- Email Анны по решению Эдварда — `annapoghos58@gmail.com`: заменён в подвале, в кнопке и в mailto формы. `hello@poghosyanchildcare.com` на сайте больше нет. WARN в `check_site.py` заменён на обязательную проверку нового адреса. Итог: 23 проверки, FAIL 1 (3 хот-линка), WARN 0.
+- Запушено `dc6baaf` (одна кнопка «Send a message», email annapoghos58@gmail.com).
+- Из подвала убрана строка «Maryland Family Child Care admits children of any race, color, religion and national origin.»; на её месте ссылка «Privacy & cookies».
+- Добавлены плашка cookies внизу экрана (кнопка Accept, выбор хранится в localStorage `mfcc-cookie-ok`) и окно «Privacy & cookies»: своих cookies и трекинга нет, Google Fonts видит IP, форма письма ничего не отправляет со страницы, Do Not Track, права жителей Калифорнии (запрос/удаление данных по email и телефону). Юридически не проверялось. +1 проверка в `check_site.py` (24).
+- Запушено `ce56781` (cookies, Privacy, без строки о недискриминации; blob `e3110b7a` совпал).
