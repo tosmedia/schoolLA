@@ -96,10 +96,14 @@ def main():
           re.search(r'class="nav__phone" href="tel:\+17477447888"', html) is not None
           and re.search(r'class="btn nav__msg"[^>]*data-open-email', html) is not None
           and "Call or text <span" not in html)
-    check("кнопка «Write an email» открывает окно с формой",
+    check("кнопка «Send a message» в контактах открывает окно с формой",
           "data-open-email" in html and 'id="emailModal"' in html and 'id="emailForm"' in html)
     check("указано время для звонков (до 12 / после 6)",
           re.search(r"before 12 noon or after 6 p\.m\.", text) is not None)
+    # 2026-10-31: уведомление о cookies (Калифорния) и окно Privacy; строки о недискриминации нет (решение Эдварда).
+    check("есть плашка cookies с кнопкой Accept и окно Privacy & cookies",
+          'id="cookieBar"' in html and 'id="cookieAccept"' in html and 'id="privacyModal"' in html
+          and "data-open-privacy" in html)
     check("вместимость 8 указана", re.search(r"\b(8|eight)\b", text, re.I) is not None)
     check("возраст 5–13 указан", re.search(r"5\s*(–|-|&ndash;|to)\s*13", text) is not None)
     check("нигде не написано «six children / up to 6»",
@@ -127,9 +131,11 @@ def main():
     for f in ("PROJECT_CONTEXT.md", "STATUS.md", "JOURNAL.md", "WORKFLOW.md"):
         check(f"docs/{f} существует", os.path.exists(os.path.join(ROOT, "docs", f)))
 
-    # WARN — известные, но не решённые вопросы.
-    check("email на сайте соответствует бренду", "poghosyanchildcare.com" not in html,
-          "всё ещё hello@poghosyanchildcare.com", warn=True)
+    # 2026-10-31: почта Анны — annapoghos58@gmail.com (решение Эдварда), старого адреса нет.
+    check("email annapoghos58@gmail.com в подвале и форме, старого адреса нет",
+          "poghosyanchildcare.com" not in html
+          and 'href="mailto:annapoghos58@gmail.com"' in html
+          and "mailto:annapoghos58@gmail.com?subject=" in html)
 
     width = max(len(n) for _, n, _ in results)
     for status, name, detail in results:
