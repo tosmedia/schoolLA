@@ -10,7 +10,7 @@
   hero из трёх строк (вместимость — 6 детей), фото дома, расписание с иконками, FAQ (6 вопросов),
   контакты (номер, «Please call before 12 noon or after 6 p.m.», кнопка «Send a message» → окно письма на annapoghos58@gmail.com), подвал (часы Mon–Fri 12:00–6:00 p.m., ссылка «Privacy & cookies»), плашка cookies с Accept и окно Privacy.
 - Дни без школы — по договорённости с Анной минимум за 2 дня.
-- Отдельно лежит прототип v3 (дизайн по joinswsh.com): `prototype/` → https://tosmedia.github.io/schoolLA/prototype/ (noindex, фото детей сгенерированы). На основной сайт не влияет.
+- Отдельно лежит прототип v3 (дизайн по joinswsh.com): `prototype/` → https://tosmedia.github.io/schoolLA/prototype/ (noindex, фото детей сгенерированы). На основной сайт не влияет. 31.10 анимации облегчены для iPhone (`0a1007b`).
 
 ## Проверки
 `python3 tools/check_site.py`: 24 проверки. **FAIL 1, WARN 0**:
