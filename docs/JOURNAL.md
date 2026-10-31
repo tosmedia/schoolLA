@@ -114,3 +114,5 @@
 - Из подвала убрана строка «Maryland Family Child Care admits children of any race, color, religion and national origin.»; на её месте ссылка «Privacy & cookies».
 - Добавлены плашка cookies внизу экрана (кнопка Accept, выбор хранится в localStorage `mfcc-cookie-ok`) и окно «Privacy & cookies»: своих cookies и трекинга нет, Google Fonts видит IP, форма письма ничего не отправляет со страницы, Do Not Track, права жителей Калифорнии (запрос/удаление данных по email и телефону). Юридически не проверялось. +1 проверка в `check_site.py` (24).
 - Запушено `ce56781` (cookies, Privacy, без строки о недискриминации; blob `e3110b7a` совпал).
+- Вместимость по решению Эдварда — **6 детей** (было 8): заменено в title, description, hero, расписании («all six»), подписи к фото, FAQ про домашку и в подвале («Capacity 6»). Проверки в `check_site.py` перевёрнуты: теперь требуется 6 и запрещено «eight/8 children». Знак-домик с 6 точками теперь совпадает с вместимостью.
+- Запушено `120d61d` (вместимость 6; blob `fcd1b51b` совпал). STATUS и PROJECT_CONTEXT обновлены: вместимость 6, проблема «6 точек при вместимости 8» закрыта.

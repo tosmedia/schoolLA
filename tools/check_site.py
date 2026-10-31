@@ -87,7 +87,7 @@ def main():
     check("нет посторонних телефонов", tels <= {PHONE_MAIN, PHONE_LICENSING},
           ", ".join(sorted(tels - {PHONE_MAIN, PHONE_LICENSING})))
 
-    # 5. Вместимость 8, возраст 5–13 (решение 2026-08-27, «не шесть»).
+    # 5. Вместимость 6 (с 2026-10-31; раньше 8), возраст 5–13.
     # 2026-10-31: все видимые номера с +1; кнопки «Call Anna» нет; в мобильной шапке звонок через tel:
     bare = re.findall(r"(?<!\+1[\s ])\(\d{3}\)[\s ]\d{3}-\d{4}", text)
     check("все видимые номера телефонов начинаются с +1", not bare, ", ".join(bare))
@@ -104,10 +104,11 @@ def main():
     check("есть плашка cookies с кнопкой Accept и окно Privacy & cookies",
           'id="cookieBar"' in html and 'id="cookieAccept"' in html and 'id="privacyModal"' in html
           and "data-open-privacy" in html)
-    check("вместимость 8 указана", re.search(r"\b(8|eight)\b", text, re.I) is not None)
+    # 2026-10-31: вместимость 6 (решение Эдварда, раньше было 8).
+    check("вместимость 6 указана", re.search(r"\b(6|six) children\b|Capacity 6\b", text, re.I) is not None)
     check("возраст 5–13 указан", re.search(r"5\s*(–|-|&ndash;|to)\s*13", text) is not None)
-    check("нигде не написано «six children / up to 6»",
-          re.search(r"\b(six|6)\s+(children|kids)\b|up to (six|6)\b", text, re.I) is None)
+    check("нигде не осталось «eight / 8 children»",
+          re.search(r"\b(eight|8)\s+(children|kids)\b|up to (eight|8)\b|all eight|Capacity 8\b", text, re.I) is None)
 
     # 6. Цен на сайте нет (решение 2026-08-27).
     prices = re.findall(r"\$\s?\d[\d,]*", text)
