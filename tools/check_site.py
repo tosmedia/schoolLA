@@ -88,6 +88,18 @@ def main():
           ", ".join(sorted(tels - {PHONE_MAIN, PHONE_LICENSING})))
 
     # 5. Вместимость 8, возраст 5–13 (решение 2026-08-27, «не шесть»).
+    # 2026-10-31: все видимые номера с +1; кнопки «Call Anna» нет; в мобильной шапке звонок через tel:
+    bare = re.findall(r"(?<!\+1[\s ])\(\d{3}\)[\s ]\d{3}-\d{4}", text)
+    check("все видимые номера телефонов начинаются с +1", not bare, ", ".join(bare))
+    check("кнопки «Call Anna» нет", not re.search(r"Call\s+Anna", text))
+    check("в шапке виден номер (tel:) и кнопка формы сообщения",
+          re.search(r'class="nav__phone" href="tel:\+17477447888"', html) is not None
+          and re.search(r'class="btn nav__msg"[^>]*data-open-email', html) is not None
+          and "Call or text <span" not in html)
+    check("кнопка «Write an email» открывает окно с формой",
+          "data-open-email" in html and 'id="emailModal"' in html and 'id="emailForm"' in html)
+    check("указано время для звонков (до 12 / после 6)",
+          re.search(r"before 12 noon or after 6 p\.m\.", text) is not None)
     check("вместимость 8 указана", re.search(r"\b(8|eight)\b", text, re.I) is not None)
     check("возраст 5–13 указан", re.search(r"5\s*(–|-|&ndash;|to)\s*13", text) is not None)
     check("нигде не написано «six children / up to 6»",
