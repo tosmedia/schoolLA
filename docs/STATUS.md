@@ -1,51 +1,33 @@
 # STATUS — SchoolLA
 
-**Обновлено:** 2026-10-03 (сессия Cowork «Контекст проекта»)
+**Обновлено:** 2026-10-31 (сессия Cowork «Maryland», правки сайта по просьбе Эдварда — см. JOURNAL)
 
 ## Что сейчас на live
 - https://tosmedia.github.io/schoolLA/ собирается из `main`.
-- **Последний коммит, менявший сайт:** `171516c` (2026-09-02), «Rework the page: bigger brand lockup…».
-  После него в `main` идут только коммиты с документацией (`docs/`, `tools/`, `CLAUDE.md`), их список в JOURNAL.
-- `index.html` в `main`: blob `87ee1a0c`, 45 760 байт. На Маке в папке SchoolLA лежит **тот же файл**
-  (сверено 2026-10-03 по blob-sha).
-- В репо: `index.html`, `.nojekyll`, `logo/`, `photos/house.webp`, `docs/`, `tools/check_site.py`, `CLAUDE.md`.
+- `index.html` в `main` совпадает с файлом в `~/Documents/Claude/Maryland` (сверка по blob-sha после каждого пуша).
+- Рабочая папка на Маке: `~/Documents/Claude/Maryland`. `~/Desktop/SchoolLA` — устаревшая копия.
+- Страница сейчас: шапка (оранжевый логотип Fredoka, номер +1 (747) 744-7888, кнопка «Send a message»),
+  hero из трёх строк, фото дома, расписание с иконками, фото двора, FAQ (8 вопросов), фото крючков,
+  контакты (номер, «Please call before 12 noon or after 6 p.m.», SMS, окно письма), подвал (часы Mon–Fri 12:00–6:00 p.m.).
+- Дни без школы — по договорённости с Анной минимум за 2 дня.
 
 ## Проверки
-`python3 tools/check_site.py`: 18 проверок. На версии из `main` **FAIL 1, WARN 1**:
-- FAIL: 7 хот-линков на `d8j0ntlcm91z4.cloudfront.net` (см. проблему 1).
+`python3 tools/check_site.py`: 23 проверки. **FAIL 1, WARN 1**:
+- FAIL: 5 хот-линков на `d8j0ntlcm91z4.cloudfront.net` (см. проблему 1).
 - WARN: email `hello@poghosyanchildcare.com` не соответствует бренду.
 
 ## Открытые проблемы
-
-1. **7 картинок хот-линкуются с Higgsfield CDN** (`d8j0ntlcm91z4.cloudfront.net`).
-   Если CDN удалит файлы, картинки на сайте пропадут.
-   - Исправление готово с 2026-09-13, но лежит **только в артефакте**
-     https://claude.ai/artifact/XDVwcWf8Z2Zqb73SRPfdw8. Это 7 jpg и index.html с локальными путями.
-   - На Маке этих фото нет. Архив `maryland-photos-and-index.zip`, упомянутый 2026-09-13, в папке не найден.
-   - `index.html` из артефакта обёрнут в каркас артефакта, поэтому как файл сайта он не годится.
-     Правильный путь: взять `index.html` из `main` и заменить в нём 7 URL по таблице ниже.
-     Проверка `check_site.py` на такой версии проходит без FAIL (проверено 2026-10-03).
-
-   | имя файла на CDN (`…/user_38tNbATsxTeaW5Nh2B2p2zEj7iM/<имя>`) | локальный файл |
-   |---|---|
-   | hf_20260821_153757_65bfcff3-5688-4a8d-9401-381964503143.png | photos/homework-table.jpg |
-   | hf_20260821_160459_f0bdc4fc-b47b-405c-ae06-6a9bd5bccb4d.png | photos/homework-three-kids.jpg |
-   | hf_20260821_153757_bc4fd702-c6f9-4a91-97c9-3ea4709ecf8f.png | photos/notebook-hands.jpg |
-   | hf_20260821_160459_ce383585-0cd4-4021-a2c5-e34d821ac993.png | photos/reading-armchair.jpg |
-   | hf_20260821_153757_da29e7c7-17ce-4945-90ab-795f19051dba.png | photos/reading-corner.jpg |
-   | hf_20260821_160459_d5841188-1bf4-4f48-9f84-e3ca87899c58.png | photos/backyard-golden-hour.jpg |
-   | hf_20260821_153757_b6909401-6d47-4d9d-9cbc-bf49f6b1f449.png | photos/backpacks-hooks.jpg |
-
-   Порядок замены совпадает с порядком появления URL в `index.html` (сверено с артефактом).
-2. **Email** `hello@poghosyanchildcare.com` не соответствует бренду. Нужен новый адрес от Эдварда.
-3. **DBA** «Maryland Family Child Care» не зарегистрировано. Это вне сайта, но имя на сайте висит.
-4. **Логотип:** на знаке 6 точек при вместимости 8. Вариант с 8 точками не выбран.
-5. **Мусор в папке на Маке:**
-   - `maryland-schoolla-project.zip` (2026-09-13) устарел, в нём старый PROJECT_CONTEXT.
-   - `_to_delete/ziNqxbek` — копия того же архива (тот же размер). Ждёт удаления Эдвардом.
+1. **5 картинок хот-линкуются с Higgsfield CDN.** Если CDN удалит файлы, они пропадут с сайта.
+   Готовые jpg лежат только в артефакте https://claude.ai/artifact/XDVwcWf8Z2Zqb73SRPfdw8.
+   Нужны в `photos/`: homework-table, homework-three-kids, notebook-hands, backyard-golden-hour, backpacks-hooks
+   (таблица CDN-имя → файл — в JOURNAL за 2026-10-03 и в истории STATUS). Бинарные файлы — push только с Мака.
+2. **Email для формы.** Письма из окна «Send a message» уходят на `hello@poghosyanchildcare.com` — неизвестно, работает ли ящик. Нужен адрес от Эдварда.
+3. **Окно обратного звонка `contactModal`** больше ничем не открывается (кнопку «Come see the house» убрали). Удалить или вернуть кнопку — решает Эдвард.
+4. **DBA** «Maryland Family Child Care» не зарегистрировано.
+5. **Логотип:** на знаке 6 точек при вместимости 8.
+6. **Мусор на Маке:** `~/Desktop/SchoolLA/_to_delete/`, старые `poghosyan-*.html` в Загрузках (копии есть в `_archive/`).
 
 ## Следующие шаги
-1. Перенести 7 фото из артефакта в репо: скачать их из артефакта, положить в `photos/` на Маке,
-   заменить URL в `index.html`, прогнать проверки, запушить (фото — бинарные, push с Мака).
-2. Решить вопрос с email.
-3. Удалить `_to_delete/` и устаревший zip, если Эдвард согласен.
+1. Получить адрес email и заменить его в форме и подвале.
+2. Перенести 5 фото в репо.
+3. Решить судьбу `contactModal`.
