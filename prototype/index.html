@@ -396,6 +396,9 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 .visit__panel{ position:relative; background:var(--paper-2); border-radius:calc(var(--r) * 1.4); padding:clamp(70px, 9vw, 130px) var(--pad) 0; overflow:hidden; text-align:center; }
 .visit__title{ font-weight:780; font-size:clamp(48px, 8vw, 132px); line-height:.94; letter-spacing:-.035em; margin:0; }
 .visit__title .w2{ position:relative; display:inline-block; }
+.visit__title--phone{ font-size:clamp(40px, 8vw, 120px); letter-spacing:-.03em; font-variant-numeric:tabular-nums; }
+.visit__title--phone a{ background:linear-gradient(var(--sun), var(--sun)) 0 92%/100% .14em no-repeat; }
+.visit__title--phone a:hover{ color:var(--tomato-ink); }
 .visit__meta{ display:flex; flex-direction:column; align-items:center; gap:18px; margin-top:30px; }
 .visit__phone{ font-family:var(--f-mono); font-size:clamp(18px, 1.7vw, 22px); letter-spacing:.02em; }
 .visit__phone a{ border-bottom:2px solid var(--sun); }
@@ -417,7 +420,8 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 .foot__cols{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:34px 16px; }
 @media (min-width:860px){ .foot__cols{ grid-template-columns:repeat(4, minmax(0,1fr)); padding:0 6vw; } }
 .foot__cols h4{ margin:0 0 16px; font-family:var(--f-mono); font-weight:400; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); }
-.foot__cols ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; font-size:15.5px; }
+.foot__cols ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; font-size:15.5px; min-width:0; }
+.foot__cols li, .foot__cols button{ overflow-wrap:anywhere; text-align:left; }
 .foot__cols a:hover{ color:var(--tomato-ink); }
 .foot__bar{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px 24px; margin-top:clamp(50px, 6vw, 90px); font-family:var(--f-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); }
 
@@ -496,7 +500,6 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
   </a>
   <nav class="nav__links" aria-label="Sections">
     <a href="#tuesday">The afternoon</a>
-    <a href="#anna">Anna</a>
     <a href="#house">The house</a>
   </nav>
   <div class="nav__right">
@@ -509,7 +512,6 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 <div class="menu" id="menu" role="dialog" aria-label="Menu">
   <a class="big" href="#tuesday" data-menu>The afternoon <small>2:30–6:00</small></a>
   <a class="big" href="#house" data-menu>The house <small>6 places</small></a>
-  <a class="big" href="#anna" data-menu>Anna <small>one adult</small></a>
   <div class="menu__foot mono">
     <a href="tel:+17477447888">+1 (747) 744-7888</a>
     <span>546 N Maryland Ave · Glendale, CA 91206</span>
@@ -681,60 +683,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
   </div>
 </section>
 
-<!-- ═════════ ANNA ═════════ -->
-<section class="sec wrap" id="anna">
-  <div class="anna__panel">
-    <div class="anna__top">
-      <p class="eyebrow" style="margin:0">The adult in the room</p>
-      <h2 class="h2" data-type>One person, every afternoon</h2>
-      <a class="btn rv" href="tel:+17477447888" data-flip>Call +1 (747) 744-7888</a>
-    </div>
-    <div class="anna__frames" id="frames">
-      <div class="frame frame--side"><img src="reading-corner.jpg" alt="A reading corner with a low bookshelf, an armchair and a floor lamp." loading="lazy"></div>
-      <div class="frame frame--mid"><img src="notebook-hands.jpg" alt="A child's hands writing in a lined notebook." loading="lazy"></div>
-      <div class="frame frame--side"><img src="reading-armchair.jpg" alt="A child reading in an armchair beside a bookshelf." loading="lazy"></div>
-      <div class="badge badge--paper" data-b="1" data-par="-.12" style="left:6%;top:12%"><b>Ages 5–13</b><span>after school</span></div>
-      <div class="badge" data-b="2" data-par=".1" style="left:2%;top:58%"><b>1:6</b><span>one adult</span></div>
-      <div class="badge badge--sun" data-b="3" data-par="-.18" style="right:4%;top:24%"><b>Licensed</b><span>CA Dept. of Social Services</span></div>
-    </div>
-  </div>
-  <div class="anna__bio">
-    <p class="big rv">Maryland Family Child Care is a licensed home on N Maryland Avenue, run by Anna Poghosyan.</p>
-    <div class="small">
-      <p class="rv">We collect your child from school ourselves and keep them until you arrive. A full hour is set aside for homework at 4:00, and with six children one adult can sit down next to each of them.</p>
-      <p class="rv">Anna answers herself. Ask about places, hours, your child's school and what it costs — it is a short conversation, and nothing is held until you have visited.</p>
-    </div>
-  </div>
-  <div class="creds">
-    <div class="cred rv"><h3>Licensed Family Day Care Home</h3><div class="cred__row"><p>California Department of Social Services, Community Care Licensing Division. Capacity 6, ages 5–13.</p><span class="round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></div>
-    <div class="cred rv"><h3>Pickup from school, by car</h3><div class="cred__row"><p>We collect your child ourselves. We do not take children to school in the morning.</p><span class="round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></div>
-    <div class="cred rv"><h3>Clubs once the homework is done</h3><div class="cred__row"><p>Russian, Armenian, chess, drama, music.</p><span class="round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span></div></div>
-  </div>
-</section>
 
-<!-- ═════════ WHAT THIS ISN'T ═════════ -->
-<section class="sec wrap" id="isnt">
-  <div class="sec-head">
-    <div>
-      <p class="eyebrow">Before you visit</p>
-      <h2 class="h2" data-type>What this isn't</h2>
-    </div>
-    <div class="sec-head__side">
-      <p class="lead rv">A small house trades a lot away. Better you read it here than find out in October.</p>
-      <a class="btn btn--soft rv" href="#faq" data-flip>Read the answers</a>
-    </div>
-  </div>
-  <div class="stack" id="stack">
-    <article class="scard sc1" style="--k:0"><div class="scard__img"><img src="backpacks-hooks.jpg" alt="Children's backpacks hanging on wooden hooks in the entryway." loading="lazy"></div>
-      <div class="scard__txt"><span class="scard__n">01 / 04</span><h3><em>Child care,</em> not a school.</h3><p>Your child goes to their own school. We take them from the last bell until you collect them. Enrolling here changes nothing about where your child is enrolled for school.</p></div></article>
-    <article class="scard sc2" style="--k:1"><div class="scard__img"><img src="homework-table.jpg" alt="A kitchen table set up for homework with notebooks and pencils." loading="lazy"></div>
-      <div class="scard__txt"><span class="scard__n">02 / 04</span><h3><em>Six is the ceiling,</em> set by the state.</h3><p>California caps a home this size at six children, ages 5 to 13 — so six is the most there will ever be.</p></div></article>
-    <article class="scard sc3" style="--k:2"><div class="scard__img"><img src="street.jpg" alt="Three children with backpacks walking along a sunny Glendale street after school." loading="lazy"></div>
-      <div class="scard__txt"><span class="scard__n">03 / 04</span><h3><em>Pickup,</em> not drop-off.</h3><p>We collect your child from school by car — we do not take them to school in the morning.</p></div></article>
-    <article class="scard sc4" style="--k:3"><div class="scard__img"><img src="crayons.jpg" alt="Children's hands drawing with crayons at a kitchen table." loading="lazy"></div>
-      <div class="scard__txt"><span class="scard__n">04 / 04</span><h3><em>School holidays</em> by arrangement.</h3><p>Winter break, spring break, summer and in-service days work by arrangement. Agree it with Anna at least two days in advance, by phone or text.</p></div></article>
-  </div>
-</section>
 
 <!-- ═════════ FAQ ═════════ -->
 <section class="sec wrap" id="faq">
@@ -756,11 +705,11 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 <!-- ═════════ VISIT ═════════ -->
 <section class="sec wrap" id="visit" style="padding-top:clamp(60px,7vw,110px)">
   <div class="visit__panel">
-    <h2 class="visit__title" aria-label="Come at 3:30, while it's noisy.">Come at 3:30,<br>while it's <span class="w2">noisy.<svg class="scribble" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path id="scribble2" d="M6 24 C 70 12, 140 30, 200 18 S 270 14, 294 20"/></svg></span></h2>
+    <p class="eyebrow">Come and see the house</p>
+    <h2 class="visit__title visit__title--phone"><a href="tel:+17477447888">+1 (747) 744&#8209;7888</a></h2>
     <div class="visit__meta">
-      <button class="btn" type="button" data-visit data-flip>Send a message</button>
-      <div class="visit__phone">Call <a href="tel:+17477447888">+1 (747) 744-7888</a></div>
       <p class="visit__hours">Please call before 12 noon or after 6 p.m.</p>
+      <button class="btn" type="button" data-visit data-flip>Send a message</button>
       <p class="visit__note">Anna answers herself. Ask about places, hours, your child's school and what it costs — it is a short conversation, and nothing is held until you have visited.</p>
     </div>
     <div class="visit__floor" id="visitFloor" aria-hidden="true">
@@ -778,8 +727,8 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
   <div class="foot__cols">
     <div><h4>Visit</h4><ul><li>546 N Maryland Ave</li><li>Glendale, CA 91206</li><li><a href="tel:+17477447888">+1 (747) 744-7888</a></li><li><button type="button" data-visit>annapoghos58@gmail.com</button></li><li>Mon–Fri 12:00–6:00 p.m.</li></ul></div>
     <div><h4>The afternoon</h4><ul><li><a href="#tuesday">2:30 Pickup</a></li><li><a href="#tuesday">4:00 Homework</a></li><li><a href="#tuesday">5:00 Clubs</a></li><li><a href="#tuesday">6:00 Home</a></li></ul></div>
-    <div><h4>Parents</h4><ul><li><a href="#faq">Parents ask</a></li><li><a href="#isnt">What this isn't</a></li><li><a href="#faq">Checking the licence</a></li><li>Licensing questions: CDSS Monterey Park Regional Office, <a href="tel:+13239813350">+1 (323) 981-3350</a></li></ul></div>
-    <div><h4>The house</h4><ul><li><a href="#house">Six places</a></li><li><a href="#anna">Anna</a></li><li><button type="button" data-visit>Send a message</button></li></ul></div>
+    <div><h4>Parents</h4><ul><li><a href="#faq">Parents ask</a></li><li><a href="#faq">Checking the licence</a></li><li>Licensing questions: CDSS Monterey Park Regional Office, <a href="tel:+13239813350">+1 (323) 981-3350</a></li></ul></div>
+    <div><h4>The house</h4><ul><li><a href="#house">Six places</a></li><li><button type="button" data-visit>Send a message</button></li></ul></div>
   </div>
   <div class="toys" id="toys">
     <p class="toys__hint hand" aria-hidden="true">go on, make a mess<small>we tidy up at 5:45</small></p>
