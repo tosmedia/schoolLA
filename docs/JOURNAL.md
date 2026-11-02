@@ -148,3 +148,21 @@
   уснуло. Внешне без изменений (сверено скриншотами desktop/mobile до и после).
 - Запушено `0a1007b` «Prototype: smoother animations on iPhone»; blob `prototype/index.html` `6f767717` совпал.
   Артефакт обновлён (версия 4).
+
+## 2026-11-02 — прототип: факты как на живом сайте, снова облегчён для телефона
+- Эдвард: контент прототипа должен совпадать с https://tosmedia.github.io/schoolLA/, фото не трогать, а все «приколы»
+  (go on, make a mess / we tidy up at 5:45, стикер, переписка, часы, подписи, игрушки, карточки фактов) оставить.
+- Сверено с живым `index.html` (blob `fcd1b51b`). Добавлено/исправлено: заголовок «The hours after school are the ones
+  that build a child.»; три абзаца живого героя (в т.ч. «run by Anna Poghosyan», «On days school is out, by arrangement
+  two days ahead») — в блок The house; ряд из трёх фото с подписями 3:55 / 4:00 / 4:40; FAQ «Questions parents actually ask»
+  / «Answers, in plain language.», первый вопрос открыт, выделение «at least two days in advance»; подвал как на живом
+  (Maryland Family Child Care / Get in touch / Hours / Licensing questions, полная строка лицензии, Privacy & cookies)
+  + оставлена колонка The afternoon; окно письма как на живом (Write to us / Send us a message., обязательное сообщение,
+  то же письмо); окно Privacy & cookies и плашка cookies (тот же ключ `mfcc-cookie-ok`); «Glendale» в логотипе;
+  title и description как на живом. Окно «Call us, or leave your number» на живом не открывается ни одной кнопкой — не переносилось.
+- Телефон: копии фото 1100px в `prototype/m/` (на телефоне грузятся они, на компьютере прежние), фото колеса и сетки
+  декодируются заранее; курсор печатающихся заголовков больше не меряет страницу на каждом шаге; смена высоты
+  экрана при скрытии адресной строки iPhone больше не пересчитывает сцены; шапка не перезаписывает классы каждый кадр;
+  бегущая строка останавливается, когда герой ушёл; движущиеся элементы героя на своих GPU-слоях; холст игрушек 1.5x.
+- Запушено `f41ba6c` (13 фото в prototype/m, sha совпали) и `2a95765` (index.html, blob `e90fbd74` совпал).
+  Артефакт — версия 5.
