@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="only light">
 <meta name="robots" content="noindex, nofollow">
 <title>Maryland Family Child Care — prototype</title>
-<meta name="description" content="A licensed family child care home on N Maryland Avenue in Glendale, California. After-school care for up to six children, ages 5 to 13, with one provider.">
+<meta name="description" content="Maryland Family Child Care — a licensed family child care home on N Maryland Avenue in Glendale, California. Up to six children, ages 5 to 13, one provider.">
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PHJlY3Qgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iMTQiIGZpbGw9IiNGQkY1RUEiLz48cGF0aCBkPSJNNiAyNS41IEwyOCA3IEw1MCAyNS41IEw1MCA0OCBMNiA0OCBaIiBmaWxsPSJub25lIiBzdHJva2U9IiMxRDIzNTAiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjE4IiBjeT0iMzEuNSIgcj0iMy4xIiBmaWxsPSIjMUQyMzUwIi8+PGNpcmNsZSBjeD0iMjgiIGN5PSIzMS41IiByPSIzLjEiIGZpbGw9IiMxRDIzNTAiLz48Y2lyY2xlIGN4PSIzOCIgY3k9IjMxLjUiIHI9IjMuMSIgZmlsbD0iIzFEMjM1MCIvPjxjaXJjbGUgY3g9IjE4IiBjeT0iNDEiIHI9IjMuMSIgZmlsbD0iIzFEMjM1MCIvPjxjaXJjbGUgY3g9IjI4IiBjeT0iNDEiIHI9IjMuMSIgZmlsbD0iIzFEMjM1MCIvPjxjaXJjbGUgY3g9IjM4IiBjeT0iNDEiIHI9IjMuMSIgZmlsbD0iI0VGNEEyQiIvPjwvc3ZnPg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -466,7 +466,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
   .announce{ font-size:13.5px; margin-bottom:18px; }
   .announce .txt{ max-width:52vw; }
   .h1{ font-size:clamp(40px, 11.6vw, 66px); }
-  .hero__title .l1{ white-space:normal; max-width:9ch; margin:0 auto; }
+  .hero__title .l1{ white-space:normal; max-width:12ch; margin:0 auto; }
   .hero__cta{ margin-top:26px; }
   .marquee{ bottom:calc(env(safe-area-inset-bottom,0px) + 16px); }
   .marquee__label{ display:none; }
@@ -490,6 +490,34 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
   .marquee__mask{ -webkit-mask-image:none; mask-image:none; }
   .modal__bg{ backdrop-filter:none; -webkit-backdrop-filter:none; background:rgba(20,26,63,.6); }
 }
+/* live-site content blocks */
+.hero__title .l1{ white-space:normal; max-width:17ch; margin-left:auto; margin-right:auto; text-wrap:balance; }
+@media (max-width:1023px){ .hero__title .l1{ max-width:12ch; } }
+.sec-head__side .lead + .lead{ margin-top:-8px; }
+.lead strong{ font-weight:650; color:var(--ink); }
+.shots{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; padding-top:clamp(50px,6vw,90px); padding-bottom:0; }
+.shot{ margin:0; }
+.shot img{ display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:var(--r); }
+.shot figcaption{ margin-top:10px; font-family:var(--f-mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); }
+@media (max-width:760px){ .shots{ grid-template-columns:1fr; gap:22px; } }
+.foot__cols{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+@media (min-width:860px){ .foot__cols{ grid-template-columns:repeat(5, minmax(0,1fr)); padding:0 4vw; } }
+.foot__bar a{ border-bottom:1.5px solid var(--sun); }
+@media (max-width:859px){ .foot__cols > div:nth-child(2){ grid-column:1 / -1; } }
+.modal .eyebrow{ margin:0 0 10px; }
+.privacy{ max-height:min(86vh, 760px); overflow:auto; overscroll-behavior:contain; }
+.privacy__body h4{ margin:18px 0 4px; font-size:15px; font-weight:700; }
+.privacy__body p{ margin:0; font-size:14.5px; line-height:1.5; }
+.field.bad textarea{ box-shadow:inset 0 0 0 2px var(--tomato-hi); }
+.cookie{ position:fixed; z-index:60; left:12px; right:12px; bottom:calc(env(safe-area-inset-bottom,0px) + 12px); display:flex; align-items:center; gap:14px; justify-content:space-between; background:var(--ink); color:var(--paper); border-radius:var(--r); padding:12px 12px 12px 18px; max-width:640px; margin:0 auto; box-shadow:0 18px 40px -20px rgba(29,35,80,.6); }
+.cookie[hidden]{ display:none; }
+.cookie__text{ margin:0; font-size:13.5px; line-height:1.4; }
+.cookie__text a{ color:var(--sun); border-bottom:1px solid currentColor; }
+.cookie .btn{ flex:none; }
+/* scroll scenes: everything that moves or fades every frame gets its own GPU layer,
+   so a frame only re-composites instead of repainting the whole stage or the 3×3 photo grid */
+.hero__title .line, .hero__title .w, #announce, .hero__cta, .marquee, .tile{ will-change:transform, opacity; }
+.tile .tagx{ will-change:opacity; }
 </style>
 </head>
 <body>
@@ -502,7 +530,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
       <circle cx="18" cy="31.5" r="3.1" fill="currentColor"/><circle cx="28" cy="31.5" r="3.1" fill="currentColor"/><circle cx="38" cy="31.5" r="3.1" fill="currentColor"/>
       <circle cx="18" cy="41" r="3.1" fill="currentColor"/><circle cx="28" cy="41" r="3.1" fill="currentColor"/><circle cx="38" cy="41" r="3.1" fill="#EF4A2B"/>
     </svg>
-    <span class="nav__word"><b>Maryland</b><span>Family Child Care</span></span>
+    <span class="nav__word"><b>Maryland</b><span>Family Child Care</span><span>Glendale</span></span>
   </a>
   <nav class="nav__links" aria-label="Sections">
     <a href="#tuesday">The afternoon</a>
@@ -534,9 +562,9 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
       <!-- polaroid stack -->
       <div class="wg" data-x=".1" data-y=".3" data-mx=".2" data-my=".205" data-depth="1.1" style="--d:0">
         <div class="wg__in"><div class="wg__body polaroid">
-          <figure><img decoding="async" src="crayons.jpg" alt=""></figure>
-          <figure><img decoding="async" src="snack.jpg" alt=""></figure>
-          <figure><img decoding="async" src="homework-three-kids.jpg" alt=""><figcaption>4:00, homework</figcaption></figure>
+          <figure><img decoding="async" data-img="crayons.jpg" alt=""></figure>
+          <figure><img decoding="async" data-img="snack.jpg" alt=""></figure>
+          <figure><img decoding="async" data-img="homework-three-kids.jpg" alt=""><figcaption>4:00, homework</figcaption></figure>
         </div></div>
       </div>
       <!-- clock dial -->
@@ -547,9 +575,9 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
         </div></div>
       </div>
       <!-- house circle -->
-      <div class="wg" data-x=".81" data-y=".25" data-mx=".8" data-my=".2" data-depth="1.3" style="--d:2">
+      <div class="wg" data-x=".855" data-y=".24" data-mx=".8" data-my=".2" data-depth="1.3" style="--d:2">
         <div class="wg__in"><div class="wg__body circle" style="width:clamp(150px,19vw,290px);aspect-ratio:1">
-          <img decoding="async" src="house.webp" alt="">
+          <img decoding="async" data-img="house.webp" alt="">
           <span class="tagx tagx--sun">546 N Maryland Ave</span>
         </div></div>
       </div>
@@ -572,14 +600,14 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
       <!-- hoop photo card -->
       <div class="wg" data-x=".9" data-y=".79" data-mx=".86" data-my=".8" data-depth="1.2" style="--d:5">
         <div class="wg__in"><div class="wg__body card-img" style="width:clamp(110px,13vw,200px);aspect-ratio:4/5;transform:rotate(4deg)">
-          <img decoding="async" src="hoop.jpg" alt="">
+          <img decoding="async" data-img="hoop.jpg" alt="">
           <span class="tagx">3:20 · yard</span>
         </div></div>
       </div>
       <!-- street circle -->
       <div class="wg" data-x=".15" data-y=".93" data-mx=".05" data-my="1.02" data-depth="1.4" style="--d:6" data-hide-m>
         <div class="wg__in"><div class="wg__body circle" style="width:clamp(180px,22vw,330px);aspect-ratio:1">
-          <img decoding="async" src="street.jpg" alt="" style="object-position:40% 50%">
+          <img decoding="async" data-img="street.jpg" alt="" style="object-position:40% 50%">
           <i class="star" style="left:30%;top:22%"></i><i class="star" style="left:62%;top:16%"></i><i class="star" style="left:74%;top:30%"></i>
           <span class="tagx tagx--sky" style="bottom:28%">After the last bell</span>
         </div></div>
@@ -593,7 +621,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
       <!-- piano circle -->
       <div class="wg" data-x=".38" data-y=".92" data-mx=".5" data-my="1" data-depth="1" style="--d:8" data-hide-m>
         <div class="wg__in"><div class="wg__body circle" style="width:clamp(110px,12vw,180px);aspect-ratio:1">
-          <img decoding="async" src="piano.jpg" alt="" style="object-position:62% 40%">
+          <img decoding="async" data-img="piano.jpg" alt="" style="object-position:62% 40%">
         </div></div>
       </div>
       <!-- chat -->
@@ -621,9 +649,9 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
         <span class="txt">Licensed home · Ages 5–13</span>
         <a href="#visit">Come see the house →</a>
       </p>
-      <h1 class="h1 hero__title" id="heroTitle" aria-label="The hours after school build a child.">
-        <span class="line l1" id="l1" aria-hidden="true">The hours after school</span>
-        <span class="line l2" id="l2" aria-hidden="true"><span class="w w1" id="w1">build</span><span class="gap" id="gap" style="display:inline-block;width:.22em"></span><span class="w w2" id="w2"><em>a child</em><svg class="scribble" viewBox="0 0 300 40" preserveAspectRatio="none"><path id="scribblePath" d="M6 26 C 60 14, 120 30, 170 20 S 260 12, 294 22 M 40 34 C 110 26, 190 34, 262 28"/></svg></span></span>
+      <h1 class="h1 hero__title" id="heroTitle" aria-label="The hours after school are the ones that build a child.">
+        <span class="line l1" id="l1" aria-hidden="true">The hours after school are the ones that</span>
+        <span class="line l2" id="l2" aria-hidden="true"><span class="w w1" id="w1">build</span><span class="gap" id="gap" style="display:inline-block;width:.22em"></span><span class="w w2" id="w2"><em>a child.</em><svg class="scribble" viewBox="0 0 300 40" preserveAspectRatio="none"><path id="scribblePath" d="M6 26 C 60 14, 120 30, 170 20 S 260 12, 294 22 M 40 34 C 110 26, 190 34, 262 28"/></svg></span></span>
       </h1>
       <div class="hero__cta" id="heroCta">
         <button class="btn" type="button" data-visit data-flip>Send a message</button>
@@ -646,7 +674,9 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
       <h2 class="h2" data-type>One house, one adult, six children at most</h2>
     </div>
     <div class="sec-head__side">
-      <p class="lead rv">California caps a home this size at six children, ages 5 to 13 — so six is the most there will ever be. We collect your child from school ourselves and keep them until you arrive.</p>
+      <p class="lead rv">Maryland Family Child Care is a licensed home on N Maryland Avenue, run by <strong>Anna Poghosyan</strong>.</p>
+      <p class="lead rv">We collect your child from school ourselves, keep them until you arrive. On days school is out, by arrangement two days ahead.</p>
+      <p class="lead rv">California caps a home this size at <strong>six children, ages 5 to 13</strong> — so six is the most there will ever be.</p>
       <div class="sec-head__row rv">
         <button class="btn" type="button" data-visit data-flip>Send a message</button>
         <div class="sec-head__arrows">
@@ -657,15 +687,15 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
     </div>
   </div>
   <div class="facts" id="facts">
-    <article class="fact rv"><div class="fact__head"><div class="fact__av"><img decoding="async" src="house.webp" alt=""></div><div class="fact__name">The house</div></div>
+    <article class="fact rv"><div class="fact__head"><div class="fact__av"><img decoding="async" data-img="house.webp" alt=""></div><div class="fact__name">The house</div></div>
       <div class="fact__tiles"><div class="fact__tile"><b>6</b><span>children, at most</span></div><div class="fact__tile"><b>5–13</b><span>ages</span></div></div></article>
     <article class="fact rv"><div class="fact__head"><div class="fact__av" style="background:var(--sky)"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#1D2350" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div class="fact__name">Afternoons</div></div>
       <div class="fact__tiles"><div class="fact__tile"><b>12–6</b><span>Mon–Fri, p.m.</span></div><div class="fact__tile"><b>6:00</b><span>a real deadline</span></div></div></article>
-    <article class="fact rv"><div class="fact__head"><div class="fact__av"><img decoding="async" src="street.jpg" alt="" style="object-position:45% 50%"></div><div class="fact__name">Pickup</div></div>
+    <article class="fact rv"><div class="fact__head"><div class="fact__av"><img decoding="async" data-img="street.jpg" alt="" style="object-position:45% 50%"></div><div class="fact__name">Pickup</div></div>
       <div class="fact__tiles"><div class="fact__tile"><b>By car</b><span>from school, by us</span></div><div class="fact__tile"><b>No</b><span>morning drop-off</span></div></div></article>
-    <article class="fact rv"><div class="fact__head"><div class="fact__av"><img decoding="async" src="notebook-hands.jpg" alt=""></div><div class="fact__name">Homework</div></div>
+    <article class="fact rv"><div class="fact__head"><div class="fact__av"><img decoding="async" data-img="notebook-hands.jpg" alt=""></div><div class="fact__name">Homework</div></div>
       <div class="fact__tiles"><div class="fact__tile"><b>60</b><span>minutes, at 4:00</span></div><div class="fact__tile"><b>1:6</b><span>adult to children</span></div></div></article>
-    <article class="fact rv"><div class="fact__head"><div class="fact__av"><img decoding="async" src="crayons.jpg" alt=""></div><div class="fact__name">School breaks</div></div>
+    <article class="fact rv"><div class="fact__head"><div class="fact__av"><img decoding="async" data-img="crayons.jpg" alt=""></div><div class="fact__name">School breaks</div></div>
       <div class="fact__tiles"><div class="fact__tile"><b>2 days</b><span>ahead, by arrangement</span></div><div class="fact__tile"><b>Anna</b><span>agree it by phone or text</span></div></div></article>
   </div>
 </section>
@@ -691,17 +721,24 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 
 
 
+<!-- ═════════ HOMEWORK SHOTS (live captions) ═════════ -->
+<section class="sec wrap shots" aria-label="Homework hour">
+  <figure class="shot rv"><img decoding="async" data-img="homework-table.jpg" alt="A kitchen table set up for homework with notebooks and pencils." loading="lazy"><figcaption>3:55 — before anyone sits down</figcaption></figure>
+  <figure class="shot rv"><img decoding="async" data-img="homework-three-kids.jpg" alt="Three children doing homework together at a kitchen table." loading="lazy"><figcaption>4:00 — all six at one table</figcaption></figure>
+  <figure class="shot rv"><img decoding="async" data-img="notebook-hands.jpg" alt="A child's hands writing in a lined notebook." loading="lazy"><figcaption>4:40 — nearly done</figcaption></figure>
+</section>
+
 <!-- ═════════ FAQ ═════════ -->
 <section class="sec wrap" id="faq">
   <div class="faq__panel">
     <div class="sec-head sec-head--center" style="margin-bottom:0">
-      <div><p class="eyebrow">Parents ask</p><h2 class="h2" data-type>Answers, in plain language</h2></div>
+      <div><p class="eyebrow">Questions parents actually ask</p><h2 class="h2" data-type>Answers, in plain language.</h2></div>
     </div>
     <div class="faq__list" id="faqList">
-      <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span class="pl" aria-hidden="true"></span>Is this a school?</button><div class="qa__a"><div><div class="in"><p>No. This is a licensed family child care home. Your child goes to their own school; we take them from the last bell until you collect them. Days when school is closed are by arrangement, agreed with Anna two days ahead. Enrolling here changes nothing about where your child is enrolled for school.</p></div></div></div></div>
+      <div class="qa open"><button class="qa__q" type="button" aria-expanded="true"><span class="pl" aria-hidden="true"></span>Is this a school?</button><div class="qa__a"><div><div class="in"><p>No. This is a licensed family child care home. Your child goes to their own school; we take them from the last bell until you collect them. Days when school is closed are by arrangement, agreed with Anna two days ahead. Enrolling here changes nothing about where your child is enrolled for school.</p></div></div></div></div>
       <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span class="pl" aria-hidden="true"></span>Do you pick up from school?</button><div class="qa__a"><div><div class="in"><p>Yes. We collect your child from school ourselves, by car, and bring them back to the house. Call or text us with your child's school and we'll say straight away whether it works.</p></div></div></div></div>
       <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span class="pl" aria-hidden="true"></span>What are the hours?</button><div class="qa__a"><div><div class="in"><p>Afternoons 12:00 to 6:00 p.m., from the last bell until you collect them.</p><p>We collect children from school; we do not take them there in the morning.</p><p>Six o'clock is a real deadline, not a suggestion — it is when Anna's own day ends.</p></div></div></div></div>
-      <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span class="pl" aria-hidden="true"></span>What happens on school holidays and over the summer?</button><div class="qa__a"><div><div class="in"><p>Days when school is closed — winter break, spring break, summer and in-service days — work by arrangement. If you would like to leave your child with Anna on one of those days, agree it with her at least two days in advance, by phone or text.</p></div></div></div></div>
+      <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span class="pl" aria-hidden="true"></span>What happens on school holidays and over the summer?</button><div class="qa__a"><div><div class="in"><p>Days when school is closed — winter break, spring break, summer and in-service days — work by arrangement. If you would like to leave your child with Anna on one of those days, agree it with her <strong>at least two days in advance</strong>, by phone or text.</p></div></div></div></div>
       <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span class="pl" aria-hidden="true"></span>Do you actually help with homework, or just supervise it?</button><div class="qa__a"><div><div class="in"><p>Help. A full hour is set aside at 4:00, and with six children one adult can sit down next to each of them. Most children leave with it finished. If your child is stuck on the same thing week after week, you will hear it from us before you hear it from school.</p></div></div></div></div>
       <div class="qa"><button class="qa__q" type="button" aria-expanded="false"><span class="pl" aria-hidden="true"></span>How do I check the licence?</button><div class="qa__a"><div><div class="in"><p>The house is licensed by the California Department of Social Services, Community Care Licensing Division. Ask us for the licence number — anyone can then look up the facility, its inspection history and any complaints on the department's public site. We would rather you did.</p></div></div></div></div>
     </div>
@@ -719,11 +756,11 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
       <p class="visit__note">Anna answers herself. Ask about places, hours, your child's school and what it costs — it is a short conversation, and nothing is held until you have visited.</p>
     </div>
     <div class="visit__floor" id="visitFloor" aria-hidden="true">
-      <div class="fl" data-par=".14" style="left:-1%;width:clamp(120px,15vw,230px);height:clamp(160px,19vw,290px)"><img decoding="async" src="hoop.jpg" alt="" loading="lazy"></div>
-      <div class="fl c" data-par=".22" style="left:15%;width:clamp(100px,11vw,170px);height:clamp(100px,11vw,170px);bottom:30px"><img decoding="async" src="chess.jpg" alt="" loading="lazy" style="object-position:30% 50%"></div>
-      <div class="fridge" data-par=".06"><span class="mag a"></span><span class="mag b"></span><img decoding="async" src="drawing.jpg" alt="A child's crayon drawing of a house with a big sun, six children holding hands and a grown-up on the porch." loading="lazy"><span class="hand">six of us + Anna</span></div>
-      <div class="fl c" data-par=".2" style="right:16%;width:clamp(110px,12vw,190px);height:clamp(110px,12vw,190px);bottom:50px"><img decoding="async" src="readaloud.jpg" alt="" loading="lazy"></div>
-      <div class="fl" data-par=".12" style="right:-1%;width:clamp(130px,16vw,250px);height:clamp(170px,20vw,300px)"><img decoding="async" src="porch.jpg" alt="" loading="lazy" style="object-position:50% 60%"></div>
+      <div class="fl" data-par=".14" style="left:-1%;width:clamp(120px,15vw,230px);height:clamp(160px,19vw,290px)"><img decoding="async" data-img="hoop.jpg" alt="" loading="lazy"></div>
+      <div class="fl c" data-par=".22" style="left:15%;width:clamp(100px,11vw,170px);height:clamp(100px,11vw,170px);bottom:30px"><img decoding="async" data-img="chess.jpg" alt="" loading="lazy" style="object-position:30% 50%"></div>
+      <div class="fridge" data-par=".06"><span class="mag a"></span><span class="mag b"></span><img decoding="async" data-img="drawing.jpg" alt="A child's crayon drawing of a house with a big sun, six children holding hands and a grown-up on the porch." loading="lazy"><span class="hand">six of us + Anna</span></div>
+      <div class="fl c" data-par=".2" style="right:16%;width:clamp(110px,12vw,190px);height:clamp(110px,12vw,190px);bottom:50px"><img decoding="async" data-img="readaloud.jpg" alt="" loading="lazy"></div>
+      <div class="fl" data-par=".12" style="right:-1%;width:clamp(130px,16vw,250px);height:clamp(170px,20vw,300px)"><img decoding="async" data-img="porch.jpg" alt="" loading="lazy" style="object-position:50% 60%"></div>
     </div>
   </div>
 </section>
@@ -731,38 +768,70 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 <!-- ═════════ FOOTER ═════════ -->
 <footer class="foot wrap">
   <div class="foot__cols">
-    <div><h4>Visit</h4><ul><li>546 N Maryland Ave</li><li>Glendale, CA 91206</li><li><a href="tel:+17477447888">+1 (747) 744-7888</a></li><li><button type="button" data-visit>annapoghos58@gmail.com</button></li><li>Mon–Fri 12:00–6:00 p.m.</li></ul></div>
+    <div><h4>Maryland Family Child Care</h4><ul><li>546 N Maryland Ave</li><li>Glendale, CA 91206</li></ul></div>
+    <div><h4>Get in touch</h4><ul><li><a href="mailto:annapoghos58@gmail.com">annapoghos58@gmail.com</a></li><li><a href="tel:+17477447888">+1 (747) 744-7888</a></li></ul></div>
+    <div><h4>Hours</h4><ul><li>Mon–Fri 12:00–6:00 p.m.</li></ul></div>
+    <div><h4>Licensing questions</h4><ul><li>Monterey Park Regional Office<br>California Dept. of Social Services</li><li><a href="tel:+13239813350">+1 (323) 981-3350</a></li></ul></div>
     <div><h4>The afternoon</h4><ul><li><a href="#tuesday">2:30 Pickup</a></li><li><a href="#tuesday">4:00 Homework</a></li><li><a href="#tuesday">5:00 Clubs</a></li><li><a href="#tuesday">6:00 Home</a></li></ul></div>
-    <div><h4>Parents</h4><ul><li><a href="#faq">Parents ask</a></li><li><a href="#faq">Checking the licence</a></li><li>Licensing questions: CDSS Monterey Park Regional Office, <a href="tel:+13239813350">+1 (323) 981-3350</a></li></ul></div>
-    <div><h4>The house</h4><ul><li><a href="#house">Six places</a></li><li><button type="button" data-visit>Send a message</button></li></ul></div>
   </div>
   <div class="toys" id="toys">
     <p class="toys__hint hand" aria-hidden="true">go on, make a mess<small>we tidy up at 5:45</small></p>
     <canvas id="toyCanvas" aria-label="A pile of toys and letter blocks spelling Maryland that you can drag around"></canvas>
   </div>
   <div class="foot__bar">
-    <span>Licensed Family Day Care Home · California CDSS, Community Care Licensing Division · Capacity 6, ages 5–13</span>
-    <span>© 2026 Maryland Family Child Care · Glendale</span>
+    <span>Licensed Family Day Care Home · California Department of Social Services, Community Care Licensing Division · Capacity 6, ages 5–13.</span>
+    <span><a href="#privacy" data-open-privacy>Privacy &amp; cookies</a> · © 2026 Maryland Family Child Care · Glendale</span>
   </div>
 </footer>
 
 </main>
 
-<!-- MODAL -->
+<!-- MODAL: write to us (same as live) -->
 <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
   <div class="modal__bg" data-close></div>
   <div class="modal__card">
     <button class="round modal__x" type="button" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-    <h3 id="mTitle">Call us, or leave a message</h3>
-    <div class="call"><a href="tel:+17477447888">+1 (747) 744-7888</a><small>Please call before 12 noon or after 6 p.m.</small></div>
+    <p class="eyebrow">Write to us</p>
+    <h3 id="mTitle">Send us a message.</h3>
     <form id="cbForm" novalidate>
       <div class="field"><label for="cbName">Your name</label><input id="cbName" type="text" autocomplete="name"></div>
-      <div class="field"><label for="cbPhone">Phone or email *</label><input id="cbPhone" type="text" autocomplete="email" required><span class="err">Add a phone number or an email so we can answer.</span></div>
-      <div class="field"><label for="cbMsg">Message</label><textarea id="cbMsg" placeholder="Your child's age and school, and when you'd like to visit"></textarea></div>
-      <button class="btn" type="submit" data-flip>Write the email</button>
+      <div class="field"><label for="cbPhone">Your phone or email *</label><input id="cbPhone" type="text" autocomplete="email" required><span class="err">Please leave a way to reach you.</span></div>
+      <div class="field"><label for="cbMsg">Message *</label><textarea id="cbMsg" placeholder="Your child's age and school, and what you would like to know."></textarea><span class="err">Please write a few words.</span></div>
+      <button class="btn" type="submit" data-flip>Send message</button>
     </form>
-    <p class="alt">Opens your mail app with the message ready to send to annapoghos58@gmail.com</p>
+    <p class="alt">This opens your own email app with the message already written — press send there.</p>
   </div>
+</div>
+
+<!-- MODAL: privacy (same text as live) -->
+<div class="modal" id="privacyModal" hidden role="dialog" aria-modal="true" aria-labelledby="pTitle">
+  <div class="modal__bg" data-close-privacy></div>
+  <div class="modal__card privacy">
+    <button class="round modal__x" type="button" data-close-privacy aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <p class="eyebrow">Effective October 31, 2026</p>
+    <h3 id="pTitle">Privacy &amp; cookies</h3>
+    <div class="privacy__body">
+      <h4>What this site collects</h4>
+      <p>This website sets no cookies of its own and uses no analytics, advertising or tracking tools. We do not sell or share personal information.</p>
+      <h4>Fonts</h4>
+      <p>Text fonts load from Google Fonts. When the page loads, Google receives your IP address and basic browser details, as described in Google’s privacy policy.</p>
+      <h4>Messages</h4>
+      <p>The message form sends nothing from this page. It opens your own email app with the text filled in. What you send goes directly to annapoghos58@gmail.com and is used only to answer you about child care.</p>
+      <h4>Your choice</h4>
+      <p>When you press “Accept”, your browser remembers it in local storage so the notice does not come back. Clearing this site’s data resets it.</p>
+      <h4>Do Not Track</h4>
+      <p>Because the site does not track visitors, every visit is treated the same way, whether or not your browser sends a Do Not Track signal.</p>
+      <h4>California residents</h4>
+      <p>You can ask what personal information we hold about you, or ask us to delete it, by writing to annapoghos58@gmail.com or calling +1&nbsp;(747)&nbsp;744-7888.</p>
+      <h4>Changes</h4>
+      <p>Any change to this notice will be posted on this page with a new effective date.</p>
+    </div>
+  </div>
+</div>
+
+<div class="cookie" id="cookieBar" role="region" aria-label="Cookie notice" hidden>
+  <p class="cookie__text">We don’t use tracking cookies. Fonts load from Google, which sees your IP address. <a href="#privacy" data-open-privacy>Privacy &amp; cookies</a></p>
+  <button class="btn" type="button" id="cookieAccept">Accept</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
@@ -798,6 +867,11 @@ var VW = window.innerWidth, VH = window.innerHeight;
 /* write a style only when it changes — avoids needless style recalcs every frame */
 function setS(el, prop, v){ var k='__'+prop; if(el[k]!==v){ el[k]=v; el.style[prop]=v; } }
 function docTop(el){ var t=0; while(el){ t+=el.offsetTop; el=el.offsetParent; } return t; }
+/* phones get 1100px copies of the photos: less to decode, less memory, no hitch when a photo appears */
+var IMGD = isMobile ? 'm/' : '';
+$$('img[data-img]').forEach(function(im){ im.src = IMGD + im.getAttribute('data-img'); });
+/* decode a photo ahead of time so it doesn't stall a scroll frame when it first shows */
+function predecode(im){ if(!im || im.__pd) return; im.__pd=true; im.loading='eager'; if(im.decode){ im.decode().catch(function(){}); } }
 
 /* ───────── flip buttons ───────── */
 function makeFlip(el){
@@ -858,7 +932,7 @@ function drawClock(time, y){
 
 /* ───────── hero ───────── */
 var hero=$('#hero'), stage=$('#stage'), widgets=$$('.wg'), l1=$('#l1'), l2=$('#l2'), gap=$('#gap'), w1=$('#w1'), w2=$('#w2');
-var world=$('#gridworld'), announce=$('#announce'), heroCta=$('#heroCta'), marquee=$('#marquee');
+var marqTrack=$('#marqTrack'), world=$('#gridworld'), announce=$('#announce'), heroCta=$('#heroCta'), marquee=$('#marquee');
 var TILES = [
   ['homework-three-kids.jpg','4:00 · homework'],['readaloud.jpg','5:45 · read-aloud'],['snack.jpg','3:00 · snack'],
   ['hoop.jpg','3:20 · the yard'],['street.jpg','2:45 · the walk home'],['crayons.jpg','4:30 · crayons'],
@@ -866,7 +940,7 @@ var TILES = [
 ];
 var tiles = TILES.map(function(t,i){
   var d=document.createElement('div'); d.className='tile'+(i===4?' center':'');
-  d.innerHTML='<img decoding="async" src="'+t[0]+'" alt="" '+(i===4?'':'loading="lazy"')+' style="object-position:50% '+(t[0]==='porch.jpg'?'62%':t[0]==='hoop.jpg'?'40%':'50%')+'"><span class="tagx'+(i%3===1?' tagx--sun':i%3===2?' tagx--sky':'')+'">'+t[1]+'</span>';
+  d.innerHTML='<img decoding="async" src="'+IMGD+t[0]+'" alt="" style="object-position:50% '+(t[0]==='porch.jpg'?'62%':t[0]==='hoop.jpg'?'40%':'50%')+'"><span class="tagx'+(i%3===1?' tagx--sun':i%3===2?' tagx--sky':'')+'">'+t[1]+'</span>';
   world.appendChild(d); return d;
 });
 
@@ -884,6 +958,7 @@ var tiles = TILES.map(function(t,i){
   var em=$('em', w2); wrapWords(em);
 })();
 
+window.addEventListener('load', function(){ tiles.forEach(function(t){ predecode(t.firstChild); }); });
 var H = { stageW:0, stageH:0, font:0, tileW:0, tileH:0, W0:0, l2base:0, widgets:[] };
 function layoutHero(){
   H.stageW = stage.clientWidth; H.stageH = stage.clientHeight;
@@ -955,6 +1030,7 @@ function heroFrame(time, y){
   setS(heroCta, 'opacity', uis); setS(heroCta, 'transform', 'translate3d(0,'+((1-ui)*20).toFixed(1)+'px,0)');
   setS(announce, 'pointerEvents', ui < .5 ? 'none' : ''); setS(heroCta, 'pointerEvents', ui < .5 ? 'none' : '');
   setS(marquee, 'opacity', uis);
+  if(marqTrack) setS(marqTrack, 'animationPlayState', ui > 0 ? 'running' : 'paused');
 
   var s = eOut(seg(p, .12, .42));
   var g = eIO(seg(p, .42, .76));
@@ -1006,11 +1082,12 @@ $$('[data-type]').forEach(function(hd, idx){
 function runType(hd){
   var T = hd.__type; if(!T || T.done) return; T.done = true;
   if(reduce){ hd.classList.add('typed'); return; }
-  var i=0, base=hd.getBoundingClientRect();
+  var i=0, b=hd.getBoundingClientRect();
+  var pos=T.chars.map(function(ch){ var r=ch.getBoundingClientRect(); return { x:r.right - b.left + 2, y:r.top - b.top + r.height*0.04, h:r.height*0.92 }; });
   function place(ch, end){
-    var r=ch.getBoundingClientRect(), b=hd.getBoundingClientRect();
-    T.cur.style.height = (r.height*0.92)+'px';
-    T.cur.style.transform = 'translate('+((end? r.right : r.left) - b.left + 2)+'px,'+(r.top - b.top + r.height*0.04)+'px)';
+    var q=pos[T.chars.indexOf(ch)];
+    T.cur.style.height = q.h+'px';
+    T.cur.style.transform = 'translate3d('+q.x.toFixed(1)+'px,'+q.y.toFixed(1)+'px,0)';
   }
   T.cur.style.opacity=1;
   (function step(){
@@ -1059,8 +1136,8 @@ var STEPS = [
 var wheel=$('#tuesday'), wBg=$('#wheelBg'), wCard=$('#wheelCard'), wList=$('#wheelList'), wTag=$('#wheelTag'), wDesc=$('#wheelDesc'), wProg=$('#wheelProg');
 var wImgs=[], wCardImgs=[], wItems=[], wBars=[], wActive=-1, wF=0;
 STEPS.forEach(function(st,i){
-  var b=new Image(); b.src=st[2]; b.alt=''; b.loading = i<2?'eager':'lazy'; wBg.appendChild(b); wImgs.push(b);
-  var c=new Image(); c.src=st[2]; c.alt=st[1]+' at '+st[0]; c.loading = i<2?'eager':'lazy'; wCard.appendChild(c); wCardImgs.push(c);
+  var b=new Image(); b.decoding='async'; b.src=IMGD+st[2]; b.alt=''; wBg.appendChild(b); wImgs.push(b);
+  var c=new Image(); c.decoding='async'; c.src=IMGD+st[2]; c.alt=st[1]+' at '+st[0]; wCard.appendChild(c); wCardImgs.push(c);
   var it=document.createElement('div'); it.className='wi'; it.innerHTML='<b>'+st[0]+'</b><span>'+st[1]+'</span>'; wList.appendChild(it); wItems.push(it);
   var bar=document.createElement('i'); wProg.appendChild(bar); wBars.push(bar);
 });
@@ -1073,6 +1150,10 @@ function setWheel(k){
   wDesc.innerHTML = '<span class="mono">'+STEPS[k][3]+'</span>'+STEPS[k][4];
 }
 setWheel(0);
+(function(){
+  var go=function(){ wImgs.concat(wCardImgs).forEach(predecode); };
+  if(window.IntersectionObserver){ var o=new IntersectionObserver(function(e){ if(e[0].isIntersecting){ go(); o.disconnect(); } },{ rootMargin:'150% 0px' }); o.observe(wheel); } else go();
+})();
 var WH = { top:0, h:1 };
 function layoutWheel(){ WH.top = docTop(wheel); WH.h = wheel.offsetHeight; }
 function wheelFrame(y){
@@ -1148,13 +1229,15 @@ prepScribble(sc1, 950); prepScribble(sc2, 300);
 if(sc2){ var so=new IntersectionObserver(function(e){ if(e[0].isIntersecting){ sc2.__draw && sc2.__draw(); so.disconnect(); } },{threshold:.6}); so.observe(sc2.closest('.visit__title')); }
 
 /* ───────── nav ───────── */
-var nav=$('#nav'), lastY=0, menuOpen=false;
+var nav=$('#nav'), lastY=0, menuOpen=false, navCompact=false, navSolid=null;
 function navFrame(y){
   var down = y > lastY + 2, up = y < lastY - 2;
   if(!menuOpen){
-    if(y > 140 && down) nav.classList.add('is-compact');
-    else if(up || y < 140) nav.classList.remove('is-compact');
-    nav.classList.toggle('is-solid', y > 40);
+    // touch the class list only when the state really changes (each write restyles the nav)
+    var c = navCompact;
+    if(y > 140 && down) c = true; else if(up || y < 140) c = false;
+    if(c !== navCompact){ navCompact = c; nav.classList.toggle('is-compact', c); }
+    var so = y > 40; if(so !== navSolid){ navSolid = so; nav.classList.toggle('is-solid', so); }
   }
   lastY = y;
 }
@@ -1162,7 +1245,7 @@ var burger=$('#burger');
 function setMenu(open){
   menuOpen=open; document.documentElement.classList.toggle('menu-open', open);
   burger.setAttribute('aria-expanded', String(open)); burger.setAttribute('aria-label', open?'Close menu':'Open menu');
-  if(open){ nav.classList.remove('is-compact'); if(lenis) lenis.stop(); } else { if(lenis) lenis.start(); }
+  if(open){ navCompact=false; nav.classList.remove('is-compact'); if(lenis) lenis.stop(); } else { if(lenis) lenis.start(); }
 }
 burger.addEventListener('click', function(){ setMenu(!menuOpen); });
 $$('[data-menu]').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
@@ -1176,13 +1259,31 @@ $$('[data-close]').forEach(function(b){ b.addEventListener('click', closeModal);
 document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ if(!modal.hidden) closeModal(); if(menuOpen) setMenu(false); } });
 $('#cbForm').addEventListener('submit', function(e){
   e.preventDefault();
-  var ph=$('#cbPhone'), field=ph.closest('.field'), name=$('#cbName').value.trim(), msg=$('#cbMsg').value.trim();
-  if(!ph.value.trim()){ field.classList.add('bad'); ph.focus(); return; }
-  field.classList.remove('bad');
-  var subject='Visiting Maryland Family Child Care'+(name?' — '+name:'');
-  var body='Hi Anna,\n\n'+(msg||'I would like to come and see the house.')+'\n\n'+(name?name+'\n':'')+'Contact: '+ph.value.trim();
+  // same checks and the same email as the live site
+  var ph=$('#cbPhone'), mg=$('#cbMsg'), name=$('#cbName').value.trim(), ok=true;
+  [ph, mg].forEach(function(el){
+    var f=el.closest('.field');
+    if(!el.value.trim()){ f.classList.add('bad'); if(ok) el.focus(); ok=false; } else f.classList.remove('bad');
+  });
+  if(!ok) return;
+  var subject='Question about Maryland Family Child Care'+(name?' — '+name:'');
+  var body=mg.value.trim()+'\n\n'+(name?name+'\n':'')+ph.value.trim();
   window.location.href='mailto:annapoghos58@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
 });
+
+/* ───────── privacy & cookie notice (as on the live site) ───────── */
+(function(){
+  var KEY='mfcc-cookie-ok', bar=$('#cookieBar'), pm=$('#privacyModal'); if(!bar || !pm) return;
+  var seen=false; try{ seen = localStorage.getItem(KEY)==='1'; }catch(e){}
+  if(!seen) bar.hidden=false;
+  $('#cookieAccept').addEventListener('click', function(){ try{ localStorage.setItem(KEY,'1'); }catch(e){} bar.hidden=true; });
+  var last=null;
+  function open(e){ if(e) e.preventDefault(); setMenu(false); last=document.activeElement; pm.hidden=false; if(lenis) lenis.stop(); var x=$('.modal__x', pm); x && x.focus(); }
+  function close(){ pm.hidden=true; if(lenis) lenis.start(); last && last.focus && last.focus(); }
+  $$('[data-open-privacy]').forEach(function(el){ el.addEventListener('click', open); });
+  $$('[data-close-privacy]').forEach(function(el){ el.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !pm.hidden) close(); });
+})();
 
 /* ───────── smooth scroll ───────── */
 var lenis=null, scrollY=window.scrollY||0;
@@ -1195,7 +1296,7 @@ if(window.Lenis && !reduce && !touch){
 }
 $$('a[href^="#"]').forEach(function(a){
   a.addEventListener('click', function(e){
-    var id=a.getAttribute('href'); if(id.length<2 || a.hasAttribute('data-visit')) return;
+    var id=a.getAttribute('href'); if(id.length<2 || a.hasAttribute('data-visit') || a.hasAttribute('data-open-privacy')) return;
     var el=$(id); if(!el) return; e.preventDefault();
     var y = el.getBoundingClientRect().top + scrollY - (id==='#tuesday'? 0 : 70);
     if(lenis) lenis.scrollTo(y, {duration:1.4}); else window.scrollTo({top:y, behavior: reduce?'auto':'smooth'});
@@ -1207,9 +1308,9 @@ var Toys=(function(){
   var box=$('#toys'), cv=$('#toyCanvas'); if(!box || !cv) return null;
   var M=window.Matter, ctx=cv.getContext('2d'), W=0, Hh=0, dpr=1, engine=null, bodies=[], house=null, started=false, running=false;
   var COLORS=['#EF4A2B','#FFC23A','#A9D3FF','#2E9E5B','#FFC6B6','#1D2350','#CFEBD4','#FFE6A0'];
-  var PHOTOS=['hoop.jpg','chess.jpg','piano.jpg','crayons.jpg','readaloud.jpg','homework-three-kids.jpg','snack.jpg'].map(function(s){ var im=new Image(); im.src=s; return im; });
+  var PHOTOS=['hoop.jpg','chess.jpg','piano.jpg','crayons.jpg','readaloud.jpg','homework-three-kids.jpg','snack.jpg'].map(function(s){ var im=new Image(); im.src=IMGD+s; return im; });
   function size(){
-    var r=box.getBoundingClientRect(); dpr=Math.min(window.devicePixelRatio||1, 2);
+    var r=box.getBoundingClientRect(); dpr=Math.min(window.devicePixelRatio||1, isMobile ? 1.5 : 2);
     W=r.width; Hh=r.height; cv.width=Math.round(W*dpr); cv.height=Math.round(Hh*dpr);
   }
   function build(){
@@ -1380,7 +1481,9 @@ function onResize(){
 // keep cached positions right when the page height changes (fonts, images, FAQ opening)
 if(window.ResizeObserver){ var lastDocH=0; new ResizeObserver(function(){ var dh=document.documentElement.scrollHeight; if(Math.abs(dh-lastDocH)>1){ lastDocH=dh; layoutWheel(); layoutPar(); H.top=docTop(hero); H.h=hero.offsetHeight; } }).observe(document.body); }
 var rt=null;
-window.addEventListener('resize', function(){ clearTimeout(rt); rt=setTimeout(function(){ onResize(); if(Toys && Math.abs(window.innerWidth-VWlast)>40){ Toys.resize(); } VWlast=window.innerWidth; }, 150); });
+window.addEventListener('resize', function(){
+  if(touch && window.innerWidth === VW){ VH = window.innerHeight; return; }
+  clearTimeout(rt); rt=setTimeout(function(){ onResize(); if(Toys && Math.abs(window.innerWidth-VWlast)>40){ Toys.resize(); } VWlast=window.innerWidth; }, 150); });
 var VWlast=window.innerWidth;
 layoutAll();
 requestAnimationFrame(frame);
