@@ -1,8 +1,13 @@
 # STATUS — SchoolLA
 
-**Обновлено:** 2026-10-31 (сессия Cowork «Maryland», правки сайта по просьбе Эдварда — см. JOURNAL)
+**Обновлено:** 2026-11-08 (боевой сайт maryland-fcc.com на Contabo — см. JOURNAL)
 
-## Что сейчас на live
+## Боевой сайт: https://maryland-fcc.com
+- На главной — прототип из `prototype/` (title «Maryland - Family Child Care», noindex включён).
+- Автодеплой: раз в минуту из `main`. Пуш в `prototype/` = обновление сайта примерно через минуту.
+- Детали сервера и откат — в приватной заметке `SERVER.md` (проект Claude, папка на Маке).
+
+## Что сейчас на GitHub Pages
 - https://tosmedia.github.io/schoolLA/ собирается из `main`.
 - `index.html` в `main` совпадает с файлом в `~/Documents/Claude/Maryland` (сверка по blob-sha после каждого пуша).
 - Рабочая папка на Маке: `~/Documents/Claude/Maryland`. `~/Desktop/SchoolLA` — устаревшая копия.
@@ -25,6 +30,9 @@
 2. **Окно обратного звонка `contactModal`** больше ничем не открывается (кнопку «Come see the house» убрали). Удалить или вернуть кнопку — решает Эдвард.
 3. **DBA** «Maryland Family Child Care» не зарегистрировано.
 4. **Мусор на Маке:** `~/Desktop/SchoolLA/_to_delete/`, старые `poghosyan-*.html` в Загрузках (копии есть в `_archive/`).
+
+5. Задачи по серверу (безопасность, проверка после перезагрузки) — в `SERVER.md`.
+6. **noindex на maryland-fcc.com** — открыть для Google после замены фото на настоящие (`INDEXING=yes`).
 
 ## Следующие шаги
 1. Перенести 3 фото в репо.

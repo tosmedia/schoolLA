@@ -16,6 +16,12 @@
 - Live: https://tosmedia.github.io/schoolLA/
 - Деплой: ветка `main`, корень репо, legacy build. Pages пересобирается меньше чем за минуту после push.
 
+## Боевой сайт maryland-fcc.com (с 2026-11-08)
+- Домен `maryland-fcc.com` (GoDaddy, аккаунт Эдварда), сайт на сервере Эдварда, HTTPS автоматически.
+- Источник — папка `prototype/` этого репо, ветка main; сервер забирает её раз в минуту.
+- Сервер общий с другими боевыми проектами Эдварда: ничего чужого не трогать. Все детали — в приватном `SERVER.md`
+  (проект Claude «Maryland», папка `~/Documents/Claude/Maryland/_server/`). Репо публичный — подробности сервера сюда не писать.
+
 ## Бренд и контент
 - Название: **Maryland Family Child Care**, по N Maryland Ave (2026-08-27).
   Вариант «SPARK After School Club» отклонён: имя занято SPARK Academy Corp (LA County) и двумя
