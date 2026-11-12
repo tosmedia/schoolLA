@@ -146,8 +146,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 .menu-open .burger i::after{ content:""; display:block; width:18px; height:2px; background:var(--tomato-ink); transform:rotate(90deg); }
 @media (min-width:1024px){
   .nav__links, .nav__text{ display:flex; }
-  .burger{ width:0; overflow:hidden; opacity:0; transition:width .5s var(--ease-io), opacity .3s; }
-  .nav.is-compact .burger{ width:44px; opacity:1; }
+  /* the burger stays visible at every width and scroll position (Edvard, 2026-11) */
 }
 .nav.is-compact .nav__brand, .nav.is-compact .nav__links, .nav.is-compact .nav__text{ opacity:0; transform:translateY(-140%); pointer-events:none; }
 .nav::before{ content:""; position:absolute; inset:0; z-index:-1; background:color-mix(in oklab, var(--paper) 82%, transparent); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); opacity:0; transition:opacity .4s; }
