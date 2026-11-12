@@ -10,7 +10,7 @@
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NiA1NiI+PHJlY3Qgd2lkdGg9IjU2IiBoZWlnaHQ9IjU2IiByeD0iMTQiIGZpbGw9IiNGQkY1RUEiLz48cGF0aCBkPSJNNiAyNS41IEwyOCA3IEw1MCAyNS41IEw1MCA0OCBMNiA0OCBaIiBmaWxsPSJub25lIiBzdHJva2U9IiMxRDIzNTAiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjE4IiBjeT0iMzEuNSIgcj0iMy4xIiBmaWxsPSIjMUQyMzUwIi8+PGNpcmNsZSBjeD0iMjgiIGN5PSIzMS41IiByPSIzLjEiIGZpbGw9IiMxRDIzNTAiLz48Y2lyY2xlIGN4PSIzOCIgY3k9IjMxLjUiIHI9IjMuMSIgZmlsbD0iIzFEMjM1MCIvPjxjaXJjbGUgY3g9IjE4IiBjeT0iNDEiIHI9IjMuMSIgZmlsbD0iIzFEMjM1MCIvPjxjaXJjbGUgY3g9IjI4IiBjeT0iNDEiIHI9IjMuMSIgZmlsbD0iIzFEMjM1MCIvPjxjaXJjbGUgY3g9IjM4IiBjeT0iNDEiIHI9IjMuMSIgZmlsbD0iI0VGNEEyQiIvPjwvc3ZnPg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Caveat:wght@500;600&family=DM+Mono:wght@400;500&family=Fredoka:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&family=Atkinson+Hyperlegible+Next:wght@400..800&display=swap" rel="stylesheet">
 <style>
 /* ════════════════════════════════════════════════════════════════════
    Maryland Family Child Care — prototype v3
@@ -42,10 +42,14 @@
   --mint:    #CFEBD4;
   --night:   #141A3F;
 
-  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
-  --f-mono:    "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --f-hand:    "Caveat", "Comic Sans MS", "Bradley Hand", cursive;
-  --f-logo:    "Fredoka", "Bricolage Grotesque", system-ui, sans-serif;
+  /* typeface «От руки» (2026-11): hand-drawn Shantell Sans for headings, logo and notes; Atkinson Hyperlegible for text and labels */
+  --f-display: "Shantell Sans", "Comic Neue", "Trebuchet MS", sans-serif;
+  --f-text:    "Atkinson Hyperlegible Next", "Trebuchet MS", Arial, sans-serif;
+  --f-mono:    "Atkinson Hyperlegible Next", "Trebuchet MS", Arial, sans-serif; /* labels (was a monospace face) */
+  --f-hand:    "Shantell Sans", "Bradley Hand", cursive;
+  --f-logo:    "Shantell Sans", "Trebuchet MS", sans-serif;
+  --logo-w:    800;
+  --label-w:   700;
   --logo:      #E8650C;
 
   --r: 22px;
@@ -533,6 +537,24 @@ html{ overflow-x:clip; }
   .burger{ width:40px; height:40px; }
 }
 @media (max-width:374px){ .nav__right .btn{ display:none; } }
+/* ───────── typeface «От руки» — font assignment and tuning ───────── */
+html body{ font-family:var(--f-text); }
+html :is(.h1,.h2,.menu a.big,.fact__name,.fact__tile b,.wi span,.badge b,.scard__txt h3,.visit__title,.modal h3,.fact__av,.privacy__body h4){ font-family:var(--f-display); }
+html :is(.mono,.eyebrow,.btn,.nav__word span,.nav__links a,.nav__text,.menu a.big small,.hero__cta .or,.tagx,.chip,.bubbles .who,.fact__tile span,.wi b,.badge span,.scard__n,.foot__cols h4,.foot__bar,.toys__hint small,.field label,.modal .alt,.shot figcaption,.visit__phone,.modal .call a,.marquee__group){ font-weight:var(--label-w); }
+
+html .h1{ font-weight:800; font-variation-settings:"BNCE" 14, "INFM" 30, "SPAC" 0; letter-spacing:-.022em; line-height:1.03; font-size:clamp(44px, 5.1vw, 90px); }
+html .hero__title .l1{ max-width:22ch; }
+html .h2{ font-weight:800; font-variation-settings:"BNCE" 10, "INFM" 24; letter-spacing:-.02em; line-height:1.04; }
+html :is(.menu a.big,.visit__title,.wi span,.fact__name,.modal h3,.scard__txt h3){ letter-spacing:-.015em; font-weight:800; font-variation-settings:"BNCE" 8, "INFM" 20; }
+html .visit__title--phone{ font-size:clamp(32px, 7.4vw, 110px); letter-spacing:-.01em; white-space:nowrap; font-variation-settings:"BNCE" 0, "INFM" 10; }
+html .fact__tile b{ font-weight:700; letter-spacing:-.01em; font-variation-settings:"BNCE" 0, "INFM" 10; }
+html .nav__word b{ font-weight:800; letter-spacing:-.005em; font-variation-settings:"BNCE" 12, "INFM" 30; }
+html .hand{ font-weight:500; font-style:italic; font-variation-settings:"BNCE" 30, "INFM" 100; }
+html .note p{ font-weight:500; font-style:italic; font-variation-settings:"BNCE" 30, "INFM" 100; font-size:clamp(18px, 1.6vw, 24px); line-height:1.15; }
+html .polaroid figcaption{ font-weight:500; font-style:italic; font-variation-settings:"INFM" 100; font-size:14px; }
+html .toys__hint{ font-size:clamp(22px, 2.1vw, 30px); }
+html :is(.mono,.eyebrow,.btn,.nav__links a,.nav__text,.hero__cta .or,.chip,.foot__cols h4,.foot__bar,.field label,.shot figcaption,.marquee__group){ letter-spacing:.07em; }
+@media (max-width:1023px){ html .h1{ font-size:clamp(36px, 10vw, 60px); } html .hero__title .l1{ max-width:none; } }
 </style>
 </head>
 <body>
@@ -1373,6 +1395,9 @@ $$('a[href^="#"]').forEach(function(a){
 var Toys=(function(){
   var box=$('#toys'), cv=$('#toyCanvas'); if(!box || !cv) return null;
   var M=window.Matter, ctx=cv.getContext('2d'), W=0, Hh=0, dpr=1, engine=null, bodies=[], house=null, started=false, running=false;
+  // block letters use the logo face (CSS variables, so the typeface is set in one place)
+  var rootCS=getComputedStyle(document.documentElement);
+  var TOYF=(rootCS.getPropertyValue('--f-logo')||'').trim() || 'sans-serif', TOYW=(rootCS.getPropertyValue('--logo-w')||'').trim() || '800';
   var COLORS=['#EF4A2B','#FFC23A','#A9D3FF','#2E9E5B','#FFC6B6','#1D2350','#CFEBD4','#FFE6A0'];
   var PHOTOS=['hoop.jpg','chess.jpg','piano.jpg','crayons.jpg','readaloud.jpg','homework-three-kids.jpg','snack.jpg'].map(function(s){ var im=new Image(); im.src=IMGD+s; return im; });
   function size(){
@@ -1490,7 +1515,7 @@ var Toys=(function(){
       if(d.kind==='block'){
         var s=d.s; roundRect(-s/2,-s/2,s,s,s*0.16); ctx.fillStyle=d.color; ctx.fill();
         ctx.fillStyle = (d.color==='#1D2350'||d.color==='#EF4A2B'||d.color==='#2E9E5B') ? '#FFFCF6' : '#1D2350';
-        ctx.font='600 '+Math.round(s*0.64)+'px "Fredoka", "Bricolage Grotesque", sans-serif'; ctx.textAlign='center'; ctx.textBaseline='middle';
+        ctx.font=TOYW+' '+Math.round(s*0.64)+'px '+TOYF; ctx.textAlign='center'; ctx.textBaseline='middle';
         ctx.fillText(d.ch, 0, s*0.04);
       } else {
         var w=d.w, h=d.h; roundRect(-w/2,-h/2,w,h,h/2); ctx.fillStyle=d.color; ctx.fill();
