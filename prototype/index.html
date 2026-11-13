@@ -554,6 +554,41 @@ html .polaroid figcaption{ font-weight:500; font-style:italic; font-variation-se
 html .toys__hint{ font-size:clamp(22px, 2.1vw, 30px); }
 html :is(.mono,.eyebrow,.btn,.nav__links a,.nav__text,.hero__cta .or,.chip,.foot__cols h4,.foot__bar,.field label,.shot figcaption,.marquee__group){ letter-spacing:.07em; }
 @media (max-width:1023px){ html .h1{ font-size:clamp(36px, 10vw, 60px); } html .hero__title .l1{ max-width:none; } }
+
+/* ───────── burger menu: phone, email and the message form, large ───────── */
+.menu{ display:block; overflow-x:hidden; overflow-y:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; padding-top:calc(env(safe-area-inset-top,0px) + 84px); padding-bottom:calc(env(safe-area-inset-bottom,0px) + 22px); }
+.menu__in{ min-height:calc(100% + 1px); display:flex; flex-direction:column; }
+.menu__phone, .menu__mail{ display:block; width:100%; white-space:nowrap; line-height:1.08; font-family:var(--f-display); font-weight:800; color:var(--ink); }
+.menu__phone{ --fit:1; font-size:9.6vw; letter-spacing:-.01em; font-variation-settings:"BNCE" 0, "INFM" 10; }
+.menu__phone span{ display:inline-block; background:linear-gradient(var(--sun), var(--sun)) 0 90%/100% .13em no-repeat; }
+.menu__mail{ --fit:1; font-size:7.6vw; letter-spacing:-.015em; font-variation-settings:"BNCE" 0, "INFM" 14; margin-top:clamp(10px, 1.6vw, 22px); }
+.menu__mail span{ display:inline-block; }
+.menu__phone:hover, .menu__mail:hover{ color:var(--tomato-ink); }
+.menu__hint{ margin:6px 0 0; font-family:var(--f-mono); font-weight:var(--label-w); font-size:12.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-2); }
+.menu__form{ margin-top:clamp(20px, 3vw, 40px); }
+.menu__fields{ display:grid; grid-template-columns:minmax(0,1fr); gap:0 16px; }
+.menu__form .field{ margin-bottom:12px; }
+.menu__form .field label{ font-size:12px; }
+.menu__form .field input, .menu__form .field textarea{ background:var(--card); font-size:19px; padding:15px 18px; }
+.menu__form .field textarea{ min-height:112px; }
+.menu__send{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 20px; margin-top:4px; }
+.menu__send .btn{ height:54px; padding:0 30px; font-size:15px; }
+.menu__note{ margin:0; flex:1 1 220px; font-size:14px; line-height:1.4; color:var(--ink-2); max-width:44ch; }
+.menu__links{ margin-top:auto; padding-top:26px; display:flex; flex-wrap:wrap; gap:8px 26px; font-family:var(--f-mono); font-weight:var(--label-w); font-size:13px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-2); }
+.menu__links a{ color:var(--ink); border-bottom:2px solid var(--sun); padding-bottom:2px; }
+.menu__links a:hover{ color:var(--tomato-ink); }
+@media (min-width:860px){
+  .menu__mail{ --fit:.6; font-size:4.4vw; }
+  .menu__fields{ grid-template-columns:minmax(0,1fr) minmax(0,1.25fr); grid-template-areas:"name msg" "contact msg"; }
+  .menu__form .field--name{ grid-area:name; } .menu__form .field--contact{ grid-area:contact; }
+  .menu__form .field--msg{ grid-area:msg; } .menu__form .field--msg textarea{ flex:1; min-height:0; resize:none; }
+  .menu__form .field label{ font-size:13px; }
+  .menu__form .field input, .menu__form .field textarea{ font-size:clamp(20px, 1.55vw, 24px); padding:clamp(16px, 1.3vw, 20px) clamp(18px, 1.5vw, 24px); }
+  .menu__form .field{ margin-bottom:14px; }
+  .menu__send{ margin-top:6px; gap:10px 24px; }
+  .menu__send .btn{ height:60px; padding:0 36px; font-size:16px; }
+  .menu__note{ font-size:15px; }
+}
 </style>
 </head>
 <body>
@@ -580,11 +615,29 @@ html :is(.mono,.eyebrow,.btn,.nav__links a,.nav__text,.hero__cta .or,.chip,.foot
 </header>
 
 <div class="menu" id="menu" role="dialog" aria-label="Menu">
-  <a class="big" href="#tuesday" data-menu>The afternoon <small>2:30–6:00</small></a>
-  <a class="big" href="#house" data-menu>The house <small>6 places</small></a>
-  <div class="menu__foot mono">
-    <a href="tel:+17477447888">+1 (747) 744-7888</a>
-    <span>546 N Maryland Ave · Glendale, CA 91206</span>
+  <div class="menu__in">
+    <!-- 1. phone, as wide as the screen -->
+    <a class="menu__phone" href="tel:+17477447888" data-fit><span>+1 (747) 744&#8209;7888</span></a>
+    <p class="menu__hint">Please call before 12 noon or after 6 p.m.</p>
+    <!-- 2. email -->
+    <a class="menu__mail" href="mailto:annapoghos58@gmail.com" data-fit><span>annapoghos58@gmail.com</span></a>
+    <!-- 3. message form (same fields and the same email as the "Send a message" window) -->
+    <form class="menu__form" id="menuForm" novalidate>
+      <div class="menu__fields">
+        <div class="field field--name"><label for="mfName">Your name</label><input id="mfName" type="text" autocomplete="name"></div>
+        <div class="field field--contact"><label for="mfContact">Your phone or email *</label><input id="mfContact" type="text" autocomplete="email" required><span class="err">Please leave a way to reach you.</span></div>
+        <div class="field field--msg"><label for="mfMsg">Message *</label><textarea id="mfMsg" placeholder="Your child's age and school, and what you would like to know."></textarea><span class="err">Please write a few words.</span></div>
+      </div>
+      <div class="menu__send">
+        <button class="btn" type="submit" data-flip>Send message</button>
+        <p class="menu__note">This opens your own email app with the message already written — press send there.</p>
+      </div>
+    </form>
+    <nav class="menu__links" aria-label="Sections">
+      <a href="#tuesday" data-menu>The afternoon</a>
+      <a href="#house" data-menu>The house</a>
+      <span>546 N Maryland Ave · Glendale, CA 91206</span>
+    </nav>
   </div>
 </div>
 
@@ -1332,7 +1385,17 @@ var burger=$('#burger');
 function setMenu(open){
   menuOpen=open; document.documentElement.classList.toggle('menu-open', open);
   burger.setAttribute('aria-expanded', String(open)); burger.setAttribute('aria-label', open?'Close menu':'Open menu');
-  if(open){ navCompact=false; nav.classList.remove('is-compact'); if(lenis) lenis.stop(); } else { if(lenis) lenis.start(); }
+  if(open){ navCompact=false; nav.classList.remove('is-compact'); if(lenis) lenis.stop(); fitMenu(); var mn=$('#menu'); if(mn) mn.scrollTop=0; } else { if(lenis) lenis.start(); }
+}
+/* the phone number and the email in the menu are sized to the width of the screen */
+function fitMenu(){
+  $$('#menu [data-fit]').forEach(function(el){
+    var sp=el.firstElementChild; if(!sp) return;
+    var k=parseFloat(getComputedStyle(el).getPropertyValue('--fit'))||1;
+    el.style.fontSize='100px';
+    var w=sp.getBoundingClientRect().width, avail=el.clientWidth*k;
+    if(w>0 && avail>0) el.style.fontSize=Math.max(14, Math.floor(100*avail/w*10)/10)+'px';
+  });
 }
 burger.addEventListener('click', function(){ setMenu(!menuOpen); });
 $$('[data-menu]').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
@@ -1344,19 +1407,24 @@ function closeModal(){ modal.hidden=true; if(lenis) lenis.start(); lastFocus && 
 $$('[data-visit]').forEach(function(b){ b.addEventListener('click', openModal); });
 $$('[data-close]').forEach(function(b){ b.addEventListener('click', closeModal); });
 document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ if(!modal.hidden) closeModal(); if(menuOpen) setMenu(false); } });
-$('#cbForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  // same checks and the same email as the live site
-  var ph=$('#cbPhone'), mg=$('#cbMsg'), name=$('#cbName').value.trim(), ok=true;
-  [ph, mg].forEach(function(el){
-    var f=el.closest('.field');
-    if(!el.value.trim()){ f.classList.add('bad'); if(ok) el.focus(); ok=false; } else f.classList.remove('bad');
+// one handler for both message forms (the window and the one in the menu): same checks, same email as the live site
+function bindMailForm(form, nameEl, contactEl, msgEl){
+  if(!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name=nameEl.value.trim(), ok=true;
+    [contactEl, msgEl].forEach(function(el){
+      var f=el.closest('.field');
+      if(!el.value.trim()){ f.classList.add('bad'); if(ok) el.focus(); ok=false; } else f.classList.remove('bad');
+    });
+    if(!ok) return;
+    var subject='Question about Maryland Family Child Care'+(name?' — '+name:'');
+    var body=msgEl.value.trim()+'\n\n'+(name?name+'\n':'')+contactEl.value.trim();
+    window.location.href='mailto:annapoghos58@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
   });
-  if(!ok) return;
-  var subject='Question about Maryland Family Child Care'+(name?' — '+name:'');
-  var body=mg.value.trim()+'\n\n'+(name?name+'\n':'')+ph.value.trim();
-  window.location.href='mailto:annapoghos58@gmail.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-});
+}
+bindMailForm($('#cbForm'), $('#cbName'), $('#cbPhone'), $('#cbMsg'));
+bindMailForm($('#menuForm'), $('#mfName'), $('#mfContact'), $('#mfMsg'));
 
 /* ───────── privacy & cookie notice (as on the live site) ───────── */
 (function(){
@@ -1563,7 +1631,7 @@ function frame(t){
   if(Toys) Toys.frame();
   requestAnimationFrame(frame);
 }
-function layoutAll(){ layoutHero(); layoutWheel(); layoutPar(); }
+function layoutAll(){ layoutHero(); layoutWheel(); layoutPar(); fitMenu(); }
 function onResize(){
   VW=window.innerWidth; VH=window.innerHeight; isMobile=mqMobile.matches;
   layoutAll();
